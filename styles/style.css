@@ -1,3 +1,9 @@
+:root{
+    --fondo_nav : #EFA3C8;
+    --black : black;
+    --white : white;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,17 +12,45 @@
 
 /* Header */
 header img {
-    width: 20rem;
+    width: 13rem;
 }
 
 .bg-header{
-    background-color: #251B37;
+    background-color: black;
+}
+
+.social-icons img{
+    width: 3rem;
 }
 
 .nav2{
-    background-color: #EFA3C8;
+    background-color: var(--fondo_nav);
+    height: 8vh;
 }
 
 .nav2 li{
     list-style: none;
+}
+
+.nav2 a {
+    border-bottom: 2px solid transparent;
+    position: relative;
+}
+
+.nav2 a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: black;
+    transition: width 0.3s ease-out;
+    transform-origin: left;
+}
+
+.nav2 a:hover:before {
+    width: 100%;
+    transition: width 0.3s ease-out;
+    transform-origin: right;
 }
