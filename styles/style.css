@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header img {
+    width: 20rem;
+}
+
+.bg-header{
+    background-color: #251B37;
+}
+
+.nav2{
+    background-color: #EFA3C8;
+}
+
+.nav2 li{
+    list-style: none;
+}
