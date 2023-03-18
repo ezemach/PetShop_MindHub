@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header img {
+    width: 20rem;
+}
+
+.bg-header{
+    background-color: #251B37;
+}
+
+.nav2{
+    background-color: #EFA3C8;
+}
+
+.nav2 li{
+    list-style: none;
+}
+.fondo{
+    width: 70vw;
+}
+main{
+    min-height: 70vh;
+    background-image: url(../assets/1848-color-pastel.jpg);
+    background-size: contain;
+}
+.card{
+    transition: all .5s ease;
+    overflow: hidden;
+    border-style: dashed;
+    /* border: 2px solid #251B37; */
+    border-radius: 10px;
+}
+.card:hover{
+    border: #EFA3C8;
+    transform: translateY(-2%) ;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+.cartas-{
+    width: 100vw;
+}
+.btn{
+    color: #EFA3C8;
+    background-color: #251B37;
+}
+
+#carouselExampleSlidesOnly img{
+    height: 30rem;
+  
+}
