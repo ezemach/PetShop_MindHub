@@ -26,8 +26,9 @@ header img {
 
 .social-icons img{
     width: 2.4rem;
-    margin: 0;
-    margin-right: 3rem;
+}
+.social-icons{
+    width: 50rem !important;
 }
 
 .nav2{
