@@ -1,0 +1,238 @@
+:root{
+    --fondo_nav : #EFA3C8;
+    --black : black;
+    --white : white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+
+.container-1{
+    padding: 0 !important;
+    max-width: 100%;
+}
+header img {
+    width: 13rem;
+}
+
+.bg-header{
+    background-color: #251B37;
+}
+
+.social-icons img{
+    width: 2.4rem;
+    margin: 0;
+    margin-right: 3rem;
+}
+
+.nav2{
+    background-color: var(--fondo_nav);
+    height: 9vh;
+    padding: 0 !important;
+}
+#nav-2{
+    padding:  0 !important;
+}
+
+.nav2 li{
+    list-style: none;
+}
+#nav-2{
+    padding: 0 !important;
+}
+.nav2 a {
+    border-bottom: 2px solid transparent;
+    position: relative;
+}
+
+.nav2 a:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: black;
+    transition: width 0.3s ease-out;
+    transform-origin: left;
+}
+
+.nav2 a:hover:before {
+    width: 100%;
+    transition: width 0.3s ease-out;
+    transform-origin: right;
+}
+
+ul li a.active {
+	border-bottom: solid black 1.5px;
+}
+
+
+ul{
+    margin:0 !important;
+}
+.boton-carro{
+    background-color: #EFA3C8;
+    border: none;
+    height: 3rem;
+}
+.imagen-carrito{
+    height:1.8rem;
+    width: 3rem;
+    object-fit: contain;
+    background-color: none;
+    
+}
+
+
+/* main */
+
+main{
+min-height:  70vh;
+object-fit: cover;
+background-image: linear-gradient(to bottom, #fad0c4, #c8a8e4);
+
+}
+
+.boton-favoritos{
+    border: none;
+    background-color:   #5ea5b500;
+    margin-left: 6rem;
+}
+
+.imagen-favoritos {
+    width: 30px;
+    height: 30px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease-out;
+}
+
+.imagen-favoritos:hover {
+    background-color: yellow;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#section-farmacia{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.title-card{
+    height: 4rem;
+}
+
+.card-body{
+    height: 5rem;
+
+}
+
+#card-farmacia{
+    transition: all .5s ease;
+    overflow: hidden;
+    border-style: dashed ;
+    border-radius: 20px;
+    margin: 2rem;
+    height: 24rem;
+    
+}
+#card-farmacia:hover{
+    border: #EFA3C8;
+    transform: translateY(-2%) ;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+.img-s {
+	height: 10em;
+    margin-top: 0.5rem;
+	object-fit: cover;
+}
+.p-home{
+    height: 1rem;
+    }
+h6{
+    height: 3rem;
+    }
+#h4-title{
+    height: 2rem;
+    font-size: 1rem;
+}
+
+
+.quantity {
+        width: 150px;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        
+}
+
+.quantity-input {
+    text-align: center;
+    font-weight: bold;
+    height: 2rem;
+    width: 2rem;
+}
+
+.boton-mas,.boton-menos{
+    width: 30px;
+    height: 30px;
+    line-height: 0;
+    border-radius: 50%;
+    text-align: center;
+    padding: 6px 0;
+}
+
+.boton-menos {
+    margin-right: -2px;
+}
+.boton-mas {
+    margin-left: -2px;
+}
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+
+    [v-cloak] {
+        display: none;
+    }
+
+    
+/* footer */
+
+footer{
+    min-height: 15vh;
+    background-color: aliceblue;
+
+}
+footer img{
+    width: 12rem;
+    object-fit: contain;
+}
+
+.footerdiv{
+    display: flex;
+    justify-content: space-around;
+    background-color: #251B37;
+}
+
+footer a{
+    text-decoration: none;
+}
