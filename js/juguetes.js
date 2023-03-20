@@ -10,6 +10,7 @@ const app = createApp({
             valorBusqueda: "",
             isAsideInactive: true,
             valorModal: {},
+            valorContador: 0,
         }
     },
     created(){
@@ -32,6 +33,17 @@ const app = createApp({
         },
         evento(evento){
           this.valorModal = this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt)
+        },
+        restarValor(){
+          if(this.valorContador == 0){
+            this.valorContador = 0
+          } else {
+            this.valorContador = this.valorContador - 1;
+          }
+        },
+        sumarValor(evento){
+          this.valorContador = this.valorContador + 1;
+          console.log(evento);
         }
     },
 })
