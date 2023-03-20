@@ -1,7 +1,7 @@
 const { createApp } = Vue
 
 const app = createApp({
-    data() {
+    data(){
         return {
             // Inicializamos las variables
             datos: [],
@@ -50,17 +50,17 @@ app.mount("#app")
 //boton
 const btnScrollTop = document.querySelector('#btn-scroll-top');
 
-btnScrollTop.addEventListener('click', function () {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+btnScrollTop.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
 
-window.addEventListener('scroll', function () {
-    if (window.pageYOffset > 200) {
-        btnScrollTop.style.display = 'block';
-    } else {
-        btnScrollTop.style.display = 'none';
-    }
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 200) {
+    btnScrollTop.style.display = 'block';
+  } else {
+    btnScrollTop.style.display = 'none';
+  }
 });
