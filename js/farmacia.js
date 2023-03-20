@@ -39,6 +39,7 @@ const app = createApp({
             this.valorContador = 0
           } else {
             this.valorContador = this.valorContador - 1;
+          }
         },
         borrarFavoritos(){
             this.favoritos=[]
