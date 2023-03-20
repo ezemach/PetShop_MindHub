@@ -6,7 +6,7 @@ const app = createApp({
             // Inicializamos las variables
             datos: [],
             datosFarmacia: [],
-            datosFarmaciaFiltrados:[],
+            datosFarmaciaFiltrados:[{},{}],
             isAsideInactive: true,
             valorBusqueda: "",
         }
@@ -33,3 +33,21 @@ const app = createApp({
 })
 
 app.mount("#app")
+
+//boton
+const btnScrollTop = document.querySelector('#btn-scroll-top');
+
+btnScrollTop.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 200) {
+    btnScrollTop.style.display = 'block';
+  } else {
+    btnScrollTop.style.display = 'none';
+  }
+});

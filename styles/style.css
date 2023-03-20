@@ -130,6 +130,16 @@ main{
     width: 8rem;
 }
 
+/* BUsqueda */
+.lupa{
+    background-color: transparent;
+    border: none;
+}
+
+.search-input{
+    width: 15rem;
+}
+
 /*cartas*/
 .boton-favoritos{
     border: none;
@@ -256,6 +266,33 @@ aside{
     z-index: 10;
 }
 
+/*--------------------------------------------------------boton que lleva al inicio-----------------------------------------------------------*/
+#btn-scroll-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#btn-scroll-top:hover {
+    background-color: #555;
+}
+
+.fa-angle-up {
+    display: inline-block;
+    transform: rotate(-45deg);
+}
 
 /* footer */
 footer{
@@ -274,3 +311,4 @@ footer img{
 [v-cloak] {
     display: none;
 }
+

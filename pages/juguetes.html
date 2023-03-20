@@ -61,21 +61,23 @@
                         <a class="nav-link" href="../pages/farmacia.html">Farmacia</a>
                     </li>
                     <li class="nav-item pe-4 ps-4 fs-2">
-                        <a class="nav-link" href="./pages/contact.html">Contact</a>
+                        <a class="nav-link" href="./pages/contact.html">Contacto</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
     <main id="app">
-        <div class="p-3 d-flex flex-wrap justify-content-center">
-            <form class="d-flex form-home " >
-                <input class="form-control me-2" type="text" class="form-control w-75" name="nameEvents" v-model="valorBusqueda" @input="filtroBusqueda" placeholder="Buscar"/>
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-            <button class="boton-carro" id="btn-carro" @click="aparecerCarrito">
-                <img class="imagen-carrito" src="../assets/carro.png" alt="carrito-compra">
-            </button>
+        <div class="p-3 d-flex flex-wrap">
+            <div class="d-flex justify-content-end align-items-center col-12 col-md-7">
+                <input class="form-control me-2 search-input" type="text" name="nameEvents" v-model="valorBusqueda" @input="filtroBusqueda" placeholder="Buscar"/>
+                <span class="input-group-text d-inline m-0 p-0 lupa" id="addon-wrapping"> <img src="../assets/luupa.png" alt="" width="30"></span>
+            </div>
+            <div class="d-flex justify-content-end col-12 col-md-5 pt-2 pt-md-0">
+                <button class="boton-carro" id="btn-carro" @click="aparecerCarrito">
+                    <img class="imagen-carrito" src="../assets/carro.png" alt="carrito-compra">
+                </button>
+            </div>
         </div>
         <!-- Cartas -->
         <section class="d-flex justify-content-around flex-wrap mt-4 " id="section-farmacia">
@@ -141,7 +143,7 @@
                 </div>
             </template>
             <template v-else>
-                <h2 class="text-dark pt-5">No hay elementos encontrados 😥</h2>
+                <h2 class="text-dark text-center pt-5">No hay elementos encontrados 😥</h2>
             </template>
         </section>
         <!-- modal -->
@@ -162,11 +164,14 @@
                 </div>
             </div>
         </div>
+        <!-- boton -->
+        <button id="btn-scroll-top" title="Volver al inicio"><span>↑</span><i class="fa fa-angle-up"></i></button>
+        <!-- boton -->
         <!-- aside carrito de compras -->
         <aside :class="{ inactive: isAsideInactive }" id="aside">
             <div class="title-container d-flex justify-content-between pe-2">
                 <p class="title ps-1">Shopping Cart</p>
-                <img src="../assets/flechita.svg" alt="" width="15">
+                <img src="../assets/flechita.svg" alt="" width="15" @click="aparecerCarrito">
             </div>
             <div class="my-order-content">
                 <div class="shopping-cart d-flex flex-column align-items-center">
