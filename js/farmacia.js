@@ -11,6 +11,7 @@ const app = createApp({
             valorBusqueda: "",
             favoritos:[],
             valorModal: {},
+            valorContador: 0,
         }
     },
     created() {
@@ -33,6 +34,12 @@ const app = createApp({
         aparecerCarrito() {
             this.isAsideInactive = !this.isAsideInactive;
         },
+        restarValor(){
+          if(this.valorContador == 0){
+            this.valorContador = 0
+          } else {
+            this.valorContador = this.valorContador - 1;
+        },
         borrarFavoritos(){
             this.favoritos=[]
         },
@@ -41,8 +48,12 @@ const app = createApp({
         },
         handleFav(){
             localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
+        },
+        sumarValor(evento){
+          this.valorContador = this.valorContador + 1;
+          console.log(evento);
         }
-    },
+  },
 })
 
 app.mount("#app")
