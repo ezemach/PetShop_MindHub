@@ -1,12 +1,191 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet-shop</title>
+    <title>Patitas - Home</title>
+    <link rel="shortcut icon" href="./assets/icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
+
 <body>
-    
+    <header>
+        <div class="col pe-0">
+            <nav class="navbar navbar-expand-lg bg-header navbar-dark">
+                <div class="container">
+                    <img class="ms-auto me-auto" src="./assets/logo.png" alt="logo">
+                    <div class="social-icons ms-5 col-9 text-end d-none d-lg-block">
+                        <a href="https://www.instagram.com/" class="ps-1 pe-1"><img src="./assets/instagram.png"
+                                alt="Ins" class="mt-2"></a>
+                        <a href="https://www.facebook.com/" class="ps-1 pe-1"><img src="./assets/facebook.png"
+                                alt="Face" class="mt-2"></a>
+                        <a href="https://api.whatsapp.com/send?phone=3225678909" class="ps-1 pe-1"><img
+                                src="./assets/whatsapp.png" alt="Wasap" class="mt-2"></a>
+                        <a href="https://twitter.com/" class="ps-1 pe-1"><img src="./assets/twiter.png" alt="Twi"
+                                class="mt-2"></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-lg-none">
+                            <li class="nav-item">
+                                <a class="nav-link active fs-4" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" href="./pages/juguetes.html">Jugueteria</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" href="./pages/farmacia.html">Farmacia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" href="">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-12 d-none d-lg-block pe-0">
+            <nav class="nav2">
+                <ul class="d-flex justify-content-center text-white">
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" href="./pages/juguetes.html">Jugueteria</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" href="./pages/farmacia.html">Farmacia</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" href="./pages/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="app" v-cloak>
+        <section id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+            <div class="carousel-inner carousel1">
+                <div class="carousel-item active">
+                    <img src="./assets/carrousel-1.jpg" class="d-block w-100 object-fit-cover" alt="Hawai 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/carrousel2.jpg" class="d-block w-100 object-fit-cover" alt="Hawaii 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/carrousel3.jpg" class="d-block w-100 object-fit-cover" alt="Hawaii 3">
+                </div>
+                <div class="overlay">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6 offset-sm-6 text-center text-md-end">
+                                <h4 class="d-none d-sm-block">Contamos Con la mayor calidad de juguetes y medicamentos
+                                    para tu mascota, sabemos que tu mascota es muy importante es por eso que puedes
+                                    comunicarte con nosotros para solicitar más información de nuestros productos</h4>
+                                <a href="./pages/juguetes.html" class="btn btn-outline-light me-2">Juguetes</a>
+                                <a href="./pages/farmacia.html" class="btn btn-outline-light">Medicamentos</a>
+                                <h6 class="d-sm-none">Contamos Con la mayor calidad de juguetes y medicamentos
+                                    para tu mascota</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="info-juguetes" class="mt-5">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 col-md-6 d-flex justify-content-center">
+                        <div class="carousel carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+                            <div class="carousel-inner">
+                                <a href="">
+                                    <div class="carousel-item active d-flex justify-content-center">
+                                        <img :src="primerdatoJuguetes.imagen" class="object-fit-cover" alt="">
+                                    </div>
+                                    <template v-for="producto of otrosdatosJuguetes">
+                                        <div class="carousel-item d-flex justify-content-center">
+                                            <img :src="producto.imagen" class="object-fit-cover imagenes-carrousel1"
+                                                :alt="producto.producto">
+                                        </div>
+                                    </template>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex flex-column align-items-center">
+                        <h2 class="text-center d-none d-sm-block">Escoge el juguete que le encantará a tu mascota</h2>
+                        <a href="./pages/juguetes.html" class="btn btn-outline-light text-dark btnjuguetes">Juguetes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="info-juguetes" class="mt-5 pb-5">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 col-md-6 d-flex flex-column align-items-center">
+                        <h2 class="text-center d-none d-sm-block">Escoge el medicamento que necesitas para tu mascota
+                        </h2>
+                        <a href="./pages/farmacia.html"
+                            class="btn btn-outline-light text-dark btnjuguetes">Medicamentos</a>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-center">
+                        <div class="carousel carousel-fade" data-bs-ride="carousel" data-bs-pause="false">
+                            <div class="carousel-inner">
+                                <a href="">
+                                    <div class="carousel-item active d-flex justify-content-center">
+                                        <img :src="primerdatoFarmacia.imagen" class="object-fit-cover" alt="Honolulu">
+                                    </div>
+                                    <template v-for="producto of otrosdatosFarmacia">
+                                        <div class="carousel-item d-flex justify-content-center">
+                                            <img :src="producto.imagen" class="object-fit-cover imagenes-carrousel1"
+                                                :alt="producto.producto">
+                                        </div>
+                                    </template>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footerdiv pt-2 pb-2">
+            <img src="../assets/perro.png" alt="" class="object-fit-cover">
+            <div class=" text-center d-flex flex-column justify-content-around ">
+                <a class="text-white" href="tel:1528764525">Tel: (571) 430 41 30</a>
+                <a class="text-white" href="tel:1528764525">Cel : (571) 350 628 0899</a>
+                <a class="text-white" href="mailto:Patitas-shop@hotmail.com"> Patitas-shop@hotmail.com</a>
+                <a class="text-white"
+                    href="https://www.google.com/maps/place/Santisimo+Sacramento,+Asunci%C3%B3n,+Paraguay/@-25.2712895,-57.5903066,16z/data=!3m1!4b1!4m9!1m2!2m1!1sCalle+5+Norte+%232334,+PARAGUAY,+Aguachica,+Cesar!3m5!1s0x945da63bf71b0bfb:0x93626aac6dd20b74!8m2!3d-25.2712272!4d-57.5822972!16s%2Fg%2F11bw3gz08t?authuser=0">
+                    Dirección: Paraguay 2334 5 F</a>
+            </div>
+        </div>
+        <div class="social-icons col-12 d-flex justify-content-center d-lg-none pb-2">
+            <a href="https://www.instagram.com/" class="ps-1 pe-1"><img src="./assets/instagram.png" alt="Ins"
+                    class="mt-2"></a>
+            <a href="https://www.facebook.com/" class="ps-1 pe-1"><img src="./assets/facebook.png" alt="Face"
+                    class="mt-2"></a>
+            <a href="https://api.whatsapp.com/send?phone=3225678909" class="ps-1 pe-1"><img src="./assets/whatsapp.png"
+                    alt="Wasap" class="mt-2"></a>
+            <a href="https://twitter.com/" class="ps-1 pe-1"><img src="./assets/twiter.png" alt="Twi" class="mt-2"></a>
+        </div>
+    </footer>
+
+    <!-- Scripts de JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/index.js"></script>
 </body>
+
 </html>

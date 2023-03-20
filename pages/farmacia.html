@@ -35,10 +35,10 @@
                                 <a class="nav-link fs-4" aria-current="page" href="../index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fs-4 active" href="#">Jugueteria</a>
+                                <a class="nav-link fs-4 active" href="../pages/juguetes.html">Jugueteria</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fs-4" href="../pages/farmacia.html">Farmacia</a>
+                                <a class="nav-link fs-4" href="#">Farmacia</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link fs-4" href="./pages/contact.html">Contact</a>
@@ -55,13 +55,13 @@
                         <a class="nav-link" aria-current="page" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item pe-4 ps-4 fs-2">
-                        <a class="nav-link active" href="#">Jugueteria</a>
+                        <a class="nav-link active" href="../pages/juguetes.html">Jugueteria</a>
                     </li>
                     <li class="nav-item pe-4 ps-4 fs-2">
-                        <a class="nav-link" href="../pages/farmacia.html">Farmacia</a>
+                        <a class="nav-link" href="#">Farmacia</a>
                     </li>
                     <li class="nav-item pe-4 ps-4 fs-2">
-                        <a class="nav-link" href="./pages/contact.html">Contacto</a>
+                        <a class="nav-link" href="./pages/contact.html">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -81,11 +81,11 @@
         </div>
         <!-- Cartas -->
         <section class="d-flex justify-content-around flex-wrap mt-4 " id="section-farmacia">
-            <template v-if="datosJuguetesFiltrados.length > 0" v-for="datos of datosJuguetesFiltrados" >
+            <template v-if="datosFarmaciaFiltrados.length > 0" v-for="datos of datosFarmaciaFiltrados" >
                 <div class="card mt-4" style="width: 16rem" id="card-farmacia">
                     <img :src="datos.imagen" class="card-img-top img-s" :alt="datos.producto" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="evento"/>
                     <div class="card-body h-5">
-                        <h4 class="card-title text-center" id="h4-title">{{datos.producto}}</h4>
+                        <h4 class="card-title text-center" id="h4-title" data-bs-toggle="modal" data-bs-target="#exampleModal">{{datos.producto}}</h4>
                         <p class="text-center mb-0">Favoritos</p>
                             <div class="form-check form-switch d-inline-block d-flex justify-content-center">
                                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
@@ -237,7 +237,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../js/juguetes.js"></script>
+    <script src="../js/farmacia.js"></script>
 </body>
 
 </html>
