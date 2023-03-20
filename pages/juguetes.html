@@ -196,18 +196,38 @@
         <!-- boton -->
         <!-- aside carrito de compras -->
         <aside :class="{ inactive: isAsideInactive }" id="aside">
-            <div class="title-container d-flex justify-content-between pe-2">
-                <p class="title ps-1">Shopping Cart</p>
+            <div class=" cars-compra title-container d-flex justify-content-between pe-2">
+                <p class="title ps-1 text-white">Shopping Cart</p>
                 <img src="../assets/flechita.svg" alt="" width="15" @click="aparecerCarrito">
             </div>
             <div class="my-order-content">
                 <div class="shopping-cart d-flex flex-column align-items-center">
-                    <figure>
-                        <img src="/assets/carro.png" class="imagen-carrito" width="150">
-                    </figure>
-                    <p>Bike</p>
-                    <p>$30,00</p>
-                    <img src="../assets/icon_close.png" alt="">
+                    <div class="d-flex gap-3 pt-2">
+                        <img id="img-carrito" src="../assets/corre.png" alt="">
+                        <p> nombre producto</p>
+                        <div class="botones-cantidad input-group-prepend">
+                            <button class="boton-menos btn btn-outline-secondary minus-btn" type="button">-</button>
+                        </div>
+                        <input type="text" class="form-control quantity-input" value="1"> 
+                        <div class="input-group-append">
+                            <button class="boton-mas btn btn-outline-secondary plus-btn" type="button">+</button>
+                        </div>
+                        <p> Precio: $30,00</p>
+                        <a href=""><img src="../assets/icon_close.png" alt=""></a>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <img id="img-carrito" src="../assets/corre.png" alt="">
+                        <p> nombre producto</p>
+                        <div class="botones-cantidad input-group-prepend">
+                            <button class="boton-menos btn btn-outline-secondary minus-btn" type="button">-</button>
+                        </div>
+                        <input type="text" class="form-control quantity-input" value="1"> 
+                        <div class="input-group-append">
+                            <button class="boton-mas btn btn-outline-secondary plus-btn" type="button">+</button>
+                        </div>
+                        <p> Precio: $30,00</p>
+                        <a href=""><img src="../assets/icon_close.png" alt=""></a>
+                    </div>
                 </div>
             </div>
         </aside>

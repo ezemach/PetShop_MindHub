@@ -10,6 +10,7 @@ const app = createApp({
             isAsideInactive: true,
             valorBusqueda: "",
             valorModal: {},
+            valorContador: 0,
         }
     },
     created(){
@@ -23,17 +24,28 @@ const app = createApp({
         .catch(error => console.log(error))
     },
     methods : {
-        filtroBusqueda(){ 
-            this.datosFarmaciaFiltrados = this.datosFarmacia.filter( producto => 
-            producto.producto.toLowerCase().includes( this.valorBusqueda.toLowerCase()) 
-        )},
-        aparecerCarrito() {
-            this.isAsideInactive = !this.isAsideInactive;
-        },
-        evento(evento){
-          this.valorModal = this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt)
+      filtroBusqueda(){ 
+          this.datosJuguetesFiltrados = this.datosJuguetes.filter( producto => 
+          producto.producto.toLowerCase().includes( this.valorBusqueda.toLowerCase()) 
+      )},
+      aparecerCarrito() {
+          this.isAsideInactive = !this.isAsideInactive;
+      },
+      evento(evento){
+        this.valorModal = this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt)
+      },
+      restarValor(){
+        if(this.valorContador == 0){
+          this.valorContador = 0
+        } else {
+          this.valorContador = this.valorContador - 1;
         }
-    },
+      },
+      sumarValor(evento){
+        this.valorContador = this.valorContador + 1;
+        console.log(evento);
+      }
+  },
 })
 
 app.mount("#app")
