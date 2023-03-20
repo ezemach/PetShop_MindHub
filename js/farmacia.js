@@ -26,50 +26,29 @@ const app = createApp({
             })
             .catch(error => console.log(error))
     },
-    methods: {
-        filtroBusqueda() {
-            this.datosFarmaciaFiltrados = this.datosFarmacia.filter(producto =>
-                producto.producto.toLowerCase().includes(this.valorBusqueda.toLowerCase())
-            )
-        },
-
-        aparecerCarrito() {
-            this.isAsideInactive = !this.isAsideInactive;
-        },
-
-        restarValor(){
-          if(this.valorContador == 0){
-            this.valorContador = 0
-          } else {
-            this.valorContador = this.valorContador - 1;
-          }
-        },
-
-        borrarFavoritos(){
-            this.favoritos=[]
-        },
-
-        evento(evento){
-            this.valorModal = this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt)
-        },
-
-        handleFav(){
-            localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
-        },
-        
-        sumarValor(evento){
-          this.valorContador = this.valorContador + 1;
-        },
-
-        añadirCarrito(evento){
-          this.arrayCarrito.push(this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt))
-        },
-
-        borrarRegistro(evento){
-          let indice = this.arrayCarrito.indexOf(this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt));
-          this.arrayCarrito.splice(indice , 1)
+    methods : {
+      filtroBusqueda(){ 
+          this.datosJuguetesFiltrados = this.datosJuguetes.filter( producto => 
+          producto.producto.toLowerCase().includes( this.valorBusqueda.toLowerCase()) 
+      )},
+      aparecerCarrito() {
+          this.isAsideInactive = !this.isAsideInactive;
+      },
+      evento(evento){
+        this.valorModal = this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt)
+      },
+      restarValor(){
+        if(this.valorContador == 0){
+          this.valorContador = 0
+        } else {
+          this.valorContador = this.valorContador - 1;
         }
-    },
+      },
+      sumarValor(evento){
+        this.valorContador = this.valorContador + 1;
+        console.log(evento);
+      }
+  },
 })
 
 app.mount("#app")
@@ -91,4 +70,3 @@ window.addEventListener('scroll', function() {
     btnScrollTop.style.display = 'none';
   }
 });
-
