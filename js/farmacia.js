@@ -6,32 +6,41 @@ const app = createApp({
             // Inicializamos las variables
             datos: [],
             datosFarmacia: [],
-            datosFarmaciaFiltrados:[{},{}],
+            datosFarmaciaFiltrados: [{}, {}],
             isAsideInactive: true,
             valorBusqueda: "",
+            favoritos:[],
             valorModal: {},
         }
     },
-    created(){
-        fetch ("https://mindhub-xj03.onrender.com/api/petshop")
-        .then(response => response.json())
-        .then(data => {
-            this.datos = data;
-            this.datosFarmacia = data.filter(producto => producto.categoria === "farmacia");
-            this.datosFarmaciaFiltrados =  data.filter(producto => producto.categoria === "farmacia");
-        })
-        .catch(error => console.log(error))
+    created() {
+        fetch("https://mindhub-xj03.onrender.com/api/petshop")
+            .then(response => response.json())
+            .then(data => {
+                this.datos = data;
+                this.datosFarmacia = data.filter(producto => producto.categoria === "farmacia");
+                this.datosFarmaciaFiltrados = data.filter(producto => producto.categoria === "farmacia");
+                this.favoritos= JSON.parse(localStorage.getItem("favoritos"))||[];
+            })
+            .catch(error => console.log(error))
     },
-    methods : {
-        filtroBusqueda(){ 
-            this.datosFarmaciaFiltrados = this.datosFarmacia.filter( producto => 
-            producto.producto.toLowerCase().includes( this.valorBusqueda.toLowerCase()) 
-        )},
+    methods: {
+        filtroBusqueda() {
+            this.datosFarmaciaFiltrados = this.datosFarmacia.filter(producto =>
+                producto.producto.toLowerCase().includes(this.valorBusqueda.toLowerCase())
+            )
+        },
         aparecerCarrito() {
             this.isAsideInactive = !this.isAsideInactive;
         },
+        borrarFavoritos(){
+            this.favoritos=[]
+        },
         evento(evento){
-          this.valorModal = this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt)
+            this.valorModal = this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt)
+        },
+        handleFav(){
+            localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
         }
     },
 })
@@ -55,4 +64,3 @@ window.addEventListener('scroll', function() {
     btnScrollTop.style.display = 'none';
   }
 });
-

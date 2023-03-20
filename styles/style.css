@@ -301,6 +301,10 @@ aside{
     transform: rotate(-45deg);
 }
 
+#letra-justify{
+    text-align: justify;
+}
+
 /* footer */
 footer{
     background-color: var(--fondo-header);
@@ -318,4 +322,3 @@ footer img{
 [v-cloak] {
     display: none;
 }
-
