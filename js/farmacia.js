@@ -9,6 +9,7 @@ const app = createApp({
             datosFarmaciaFiltrados:[{},{}],
             isAsideInactive: true,
             valorBusqueda: "",
+            valorModal: {},
         }
     },
     created(){
@@ -28,6 +29,9 @@ const app = createApp({
         )},
         aparecerCarrito() {
             this.isAsideInactive = !this.isAsideInactive;
+        },
+        evento(evento){
+          this.valorModal = this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt)
         }
     },
 })
@@ -51,3 +55,4 @@ window.addEventListener('scroll', function() {
     btnScrollTop.style.display = 'none';
   }
 });
+

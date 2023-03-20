@@ -1,14 +1,15 @@
-const { createApp } = Vue
+const { createApp } = Vue;
 
 const app = createApp({
     data(){
         return {
             // Inicializamos las variables
-            datos: undefined,
-            datosJuguetes: undefined,
+            datos: [],
+            datosJuguetes: [],
             datosJuguetesFiltrados: [{},{}],
             valorBusqueda: "",
             isAsideInactive: true,
+            valorModal: {},
         }
     },
     created(){
@@ -18,7 +19,6 @@ const app = createApp({
             this.datos = data;
             this.datosJuguetes = data.filter(producto => producto.categoria === "jugueteria")
             this.datosJuguetesFiltrados = data.filter(producto => producto.categoria === "jugueteria")
-            console.log(this.valorBusqueda);
         })
         .catch(error => console.log(error))
     },
@@ -29,11 +29,14 @@ const app = createApp({
         )},
         aparecerCarrito() {
             this.isAsideInactive = !this.isAsideInactive;
+        },
+        evento(evento){
+          this.valorModal = this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt)
         }
     },
 })
 
-app.mount("#app")
+app.mount("#app");
 
 //boton
 const btnScrollTop = document.querySelector('#btn-scroll-top');

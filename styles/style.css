@@ -79,7 +79,7 @@ ul{
     width: 3rem;
     object-fit: contain;
     background-color: none;
-    
+    cursor: pointer;
 }
 
 /* Main del home */
@@ -192,6 +192,7 @@ main{
 	height: 10em;
     margin-top: 0.5rem;
 	object-fit: cover;
+    cursor: pointer;
 }
 
 .p-home{
@@ -264,6 +265,12 @@ aside{
     width: 30%;
     height: 100%;
     z-index: 10;
+}
+
+/*modal*/
+.img-modal{
+    height: 30rem;
+    object-fit: cover;
 }
 
 /*--------------------------------------------------------boton que lleva al inicio-----------------------------------------------------------*/
