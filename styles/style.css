@@ -1,5 +1,6 @@
 :root{
     --fondo_nav : #EFA3C8;
+    --fondo-header : #251B37;
     --black : black;
     --white : white;
 }
@@ -10,6 +11,9 @@
     box-sizing: border-box;
 }
 
+.inactive{
+    display: none;
+}
 
 /* Header */
 header img {
@@ -17,7 +21,7 @@ header img {
 }
 
 .bg-header{
-    background-color: black;
+    background-color: var(--fondo-header);
 }
 
 .social-icons img{
@@ -56,10 +60,34 @@ header img {
     transform-origin: right;
 }
 
+/*aporte Carlos */
+/* ul li a.active {
+	border-bottom: solid black 1.5px;
+} */
+
+
+ul{
+    margin:0 !important;
+}
+.boton-carro{
+    background-color: transparent;
+    border: none;
+    height: 3rem;
+}
+.imagen-carrito{
+    height:1.8rem;
+    width: 3rem;
+    object-fit: contain;
+    background-color: none;
+    
+}
+
 /* Main del home */
 main{
     background-image: url(../assets/1848-color-pastel.jpg);
     background-size: contain;
+    position: relative;
+    min-height: 70vh;
 }
 
 .carousel1 img {
@@ -102,7 +130,138 @@ main{
     width: 8rem;
 }
 
+/*cartas*/
+.boton-favoritos{
+    border: none;
+    background-color:   #5ea5b500;
+    margin-left: 6rem;
+}
+
+.imagen-favoritos {
+    width: 30px;
+    height: 30px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease-out;
+}
+
+#btn-favoritos img:hover {
+    border-color: yellow;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#section-farmacia{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.title-card{
+    height: 4rem;
+}
+
+.card-body{
+    height: 6rem;
+}
+
+#card-farmacia{
+    transition: all .5s ease;
+    overflow: hidden;
+    border-style: dashed ;
+    border-radius: 20px;
+    margin: 2rem;
+    height: 28rem;   
+}
+
+#card-farmacia:hover{
+    border: #EFA3C8;
+    transform: translateY(-2%) ;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.img-s {
+	height: 10em;
+    margin-top: 0.5rem;
+	object-fit: cover;
+}
+
+.p-home{
+    height: 1rem;
+}
+
+h6{
+    height: 3rem;
+}
+
+#h4-title{
+    height: 2rem;
+    font-size: 1rem;
+}
+
+.quantity {
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 1rem;   
+}
+
+.quantity-input {
+    text-align: center;
+    font-weight: bold;
+    height: 2rem;
+    width: 2rem;
+}
+
+.boton-mas , .boton-menos{
+    width: 30px;
+    height: 30px;
+    line-height: 0;
+    border-radius: 50%;
+    text-align: center;
+    padding: 6px 0;
+}
+
+.boton-menos {
+    margin-right: -2px;
+}
+
+.boton-mas {
+    margin-left: -2px;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/*carrito aside*/
+aside{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: white;
+    border-bottom-left-radius: 5rem;
+    width: 30%;
+    height: 100%;
+    z-index: 10;
+}
+
+
 /* footer */
+footer{
+    background-color: var(--fondo-header);
+}
+
 footer img{
     width: 6rem;
 }
