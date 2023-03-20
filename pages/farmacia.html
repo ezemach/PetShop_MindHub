@@ -5,129 +5,199 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patitas - Farmacia</title>
-    <link rel="shortcut icon" href="../assets/icono.png" type="image/x-icon">
-    <link rel="stylesheet" href="../styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" href="../assets/icono.png" type="image/x-icon">
+    <title>Patitas | Farmacia</title>
 </head>
 
 <body>
-    <header class="sticky-top">
-        <div class="row">
-            <div class="col-12 container-1">
-                <nav class="navbar navbar-expand-lg bg-header navbar-dark ">
-                    <div class="container-fluid d-flex">
-                        <img class="me-5 ms-5" src="../assets/logo.png" alt="logo">
-                        <div class="social-icons ms-5 col-9 text-end d-none d-lg-block">
-                            <a href="https://www.facebook.com/" class="ps-1 pe-1"><img src="../assets/facebook.png" alt="" class="mt-2"></a>
-                            <a href="https://www.instagram.com/" class="ps-1 pe-1"><img src="../assets/instagram.png" alt="" class="mt-2"></a>
-                            <a href="https://api.whatsapp.com/send?phone=3225690987" class="ps-1 pe-1"><img src="../assets/wasap.png" alt="" class="mt-2"></a>
-                            <a href="https://www.tiktok.com/" class="ps-1 pe-1"><img src="../assets/tik tok.png" alt="" class="mt-2"></a>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-lg-none">
-                                <li class="nav-item">
-                                    <a class="nav-link " aria-current="page" href="../index.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="">Jugueteria</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">Farmacia</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
+    <header>
+        <div class="col">
+            <nav class="navbar navbar-expand-lg bg-header navbar-dark">
+                <div class="container">
+                    <img class="ms-auto me-auto" src="../assets/logo.png" alt="logo">
+                    <div class="social-icons ms-5 col-9 text-end d-none d-lg-block">
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/instagram.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/facebook.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/whatsapp.png" alt="" class="mt-2"></a>
+                        <a href="#" class="ps-1 pe-1"><img src="../assets/twiter.png" alt="" class="mt-2"></a>
                     </div>
-                </nav>
-            </div>
-            <div class="col d-none d-lg-block" id="nav-2">
-                <nav class="nav2">
-                    <ul class="me-5 ms-5 d-flex justify-content-center text-white ul-nav">
-                        <li class="nav-item me-4 ms-4 fs-2">
-                            <a class="nav-link " aria-current="page" href="../index.html">Home</a>
-                        </li>
-                        <li class="nav-item me-4 ms-4 fs-2">
-                            <a class="nav-link" href="./pages/upcoming.html">Jugueteria</a>
-                        </li>
-                        <li class="nav-item me-4 ms-4 fs-2">
-                            <a class="nav-link active" href="#">Farmacia</a>
-                        </li>
-                        <li class="nav-item me-4 ms-4 fs-2">
-                            <a class="nav-link" href="./pages/contact.html">Contact</a>
-                        </li>
-                        <button class="boton-carro" id="btn-carro">
-                            <img class="imagen-carrito" src="../assets/carro.png" alt="carrito-compra">
-                        </button>
-                    </ul>
-                </nav>
-            </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-lg-none">
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" aria-current="page" href="../index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" href="../pages/juguetes.html">Jugueteria</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4 active" href="#">Farmacia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" href="./pages/contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-12 d-none d-lg-block">
+            <nav class="nav2">
+                <ul class="d-flex justify-content-center text-white">
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" href="../pages/juguetes.html">Jugueteria</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link active " href="#">Farmacia</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" href="./pages/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
-    <main id="app" v-cloak>
-        <!-- <div v-cloak>{{filtro}}</div> -->
-    
-        <div class="p-3 d-flex flex-wrap justify-content-center">
-            <form class="d-flex form-home " >
-                <input class="form-control me-2" type="text" class="form-control w-75" name="nameEvents" v-model="valorBusqueda" placeholder="Ej = Cepillo"/>
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
+    <main id="app">
+        <div class="p-3 d-flex flex-wrap">
+            <div class="d-flex justify-content-end align-items-center col-12 col-md-7">
+                <input class="form-control me-2 search-input" type="text" name="nameEvents" v-model="valorBusqueda" @input="filtroBusqueda" placeholder="Buscar"/>
+                <span class="input-group-text d-inline m-0 p-0 lupa" id="addon-wrapping"> <img src="../assets/luupa.png" alt="" width="30"></span>
+            </div>
+            <div class="d-flex justify-content-end col-12 col-md-5 pt-2 pt-md-0">
+                <button class="boton-carro" id="btn-carro" @click="aparecerCarrito">
+                    <img class="imagen-carrito" src="../assets/carro.png" alt="carrito-compra">
+                </button>
+            </div>
         </div>
-        <section class="d-flex justify-content-around flex-wrap mt-4  " id="section-farmacia">
-
-
-            <div  v-for="datos of datosFarmacia" class="card mt-4" style="width: 16rem" id="card-farmacia">
-                <img v-bind:src="datos.imagen" class="card-img-top img-s" alt="producto-perros"/>
-                <div class="card-body h-5">
-                    <button class="boton-favoritos" id="btn-favoritos">
-                        <img class="imagen-favoritos" src="../assets/favoritos.png" alt="favoritos">
-                    </button>
-                    <h4 class="card-title text-center" id="h4-title">{{datos.producto}}</h4>
-                    <p class="card-text p-home text-center text-success" style="font-weight: bold;"> $ {{datos.precio}}</p>
-                    <div class="input-group quantity">
-                        <div class=" botones-cantidad input-group-prepend">
-                            <button class="boton-menos btn btn-outline-secondary minus-btn" type="button">-</button>
-                        </div>
-                        <input type="text" class="form-control quantity-input" value="1">
-                        <div class="input-group-append">
-                            <button class="boton-mas btn btn-outline-secondary plus-btn" type="button">+</button>
-                        </div>
+        <!-- Cartas -->
+        <section class="d-flex justify-content-around flex-wrap mt-4 " id="section-farmacia">
+            <template v-if="datosFarmaciaFiltrados.length > 0" v-for="datos of datosFarmaciaFiltrados" >
+                <div class="card mt-4" style="width: 16rem" id="card-farmacia">
+                    <img :src="datos.imagen" class="card-img-top img-s" alt="producto-perros" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+                    <div class="card-body h-5">
+                        <h4 class="card-title text-center" id="h4-title" data-bs-toggle="modal" data-bs-target="#exampleModal">{{datos.producto}}</h4>
+                        <p class="text-center mb-0">Favoritos</p>
+                            <div class="form-check form-switch d-inline-block d-flex justify-content-center">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+                        <p class="card-text p-home text-center text-success" style="font-weight: bold;"> $ {{datos.precio}}</p>
+                        <template v-if="datos.disponibles == 0">
+                            <div class="input-group quantity d-flex justify-content-center">
+                                <div class="botones-cantidad input-group-prepend">
+                                    <button class="boton-menos btn btn-outline-secondary minus-btn disabled" type="button">-</button>
+                                </div>
+                                <input type="text" class="form-control quantity-input" value="1">
+                                <div class="input-group-append">
+                                    <button class="boton-mas btn btn-outline-secondary plus-btn disabled" type="button">+</button>
+                                </div>
+                                <p class="pt-2">Añadir al <a><img src="../assets/carro.png" width="20" alt="" class="border-0"></a></p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center price1 info4">
+                                <h5 class="fs-5">{{datos.disponibles}} Uds.</h5>
+                                <p class="badge text-bg-danger mb-0">Agotado</p>
+                            </div>
+                        </template>
+                        <template v-if="((datos.disponibles > 0) && (datos.disponibles <= 5))">
+                            <div class="input-group quantity d-flex justify-content-center">
+                                <div class="botones-cantidad input-group-prepend">
+                                    <button class="boton-menos btn btn-outline-secondary minus-btn" type="button">-</button>
+                                </div>
+                                <input type="text" class="form-control quantity-input" value="1">
+                                <div class="input-group-append">
+                                    <button class="boton-mas btn btn-outline-secondary plus-btn" type="button">+</button>
+                                </div>
+                                <p class="pt-2">Añadir al <a><img src="../assets/carro.png" width="20" alt=""></a></p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center price1 info4">
+                                <h5 class="fs-5">{{datos.disponibles}} Uds.</h5>
+                                <p class="badge text-bg-warning mb-0">Últimas unidades</p>
+                            </div>
+                        </template>
+                        <template v-if="datos.disponibles > 5">
+                            <div class="input-group quantity d-flex justify-content-center">
+                                <div class="botones-cantidad input-group-prepend">
+                                    <button class="boton-menos btn btn-outline-secondary minus-btn" type="button">-</button>
+                                </div>
+                                <input type="text" class="form-control quantity-input" value="1">
+                                <div class="input-group-append">
+                                    <button class="boton-mas btn btn-outline-secondary plus-btn" type="button">+</button>
+                                </div>
+                                <p class="pt-2">Añadir al <a><img src="../assets/carro.png" width="20" alt=""></a></p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center price1 info4">
+                                <h5 class="fs-5">{{datos.disponibles}} Uds.</h5>
+                                <p class="badge text-bg-success mb-0">Unidades disponibles</p>
+                            </div>
+                        </template>
                     </div>
-                    
-                    <div class="d-flex justify-content-between align-items-center price1 info4">
-                        <h5 class="fs-5">{{datos.disponibles}} Uds.</h5>
-                        <a :href="" class="btn btn-danger">últimas unidades </a>
+                </div>
+            </template>
+            <template v-else>
+                <h2 class="text-dark text-center pt-5">No hay elementos encontrados 😥</h2>
+            </template>
+        </section>
+        <!-- modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{datos.producto}}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {{datos.producto}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
-
-
-        </section>
-
+        </div>
+        <!-- boton -->
+        <button id="btn-scroll-top" title="Volver al inicio"><span>↑</span><i class="fa fa-angle-up"></i></button>
+        <!-- boton -->
+        <!-- aside carrito de compras -->
+        <aside :class="{ inactive: isAsideInactive }" id="aside">
+            <div class="title-container d-flex justify-content-between pe-2">
+                <p class="title ps-1">Shopping Cart</p>
+                <img src="../assets/flechita.svg" alt="" width="15" @click="aparecerCarrito">
+            </div>
+            <div class="my-order-content">
+                <div class="shopping-cart d-flex flex-column align-items-center">
+                    <figure>
+                        <img src="/assets/carro.png" width="150">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$30,00</p>
+                    <img src="../assets/icon_close.png" alt="">
+                </div>
+            </div>
+        </aside>
     </main>
-
-    <footer class="bg-dark">
-        <div class="footerdiv pt-2">
+    <footer>
+        <div class="footerdiv pt-2 pb-2">
             <img src="../assets/perro.png" alt="" class="object-fit-cover ">
             <div class=" text-center d-flex flex-column justify-content-around ">
                 <a class="text-white" href="tel:1528764525">Tel: (571) 430 41 30</a>
                 <a class="text-white" href="tel:1528764525">Cel : (571) 350 628 0899</a>
                 <a class="text-white" href="mailto:Patitas-shop@hotmail.com"> Patitas-shop@hotmail.com</a>
-                <a  class="text-white" href="https://www.google.com/maps/place/Santisimo+Sacramento,+Asunci%C3%B3n,+Paraguay/@-25.2712895,-57.5903066,16z/data=!3m1!4b1!4m9!1m2!2m1!1sCalle+5+Norte+%232334,+PARAGUAY,+Aguachica,+Cesar!3m5!1s0x945da63bf71b0bfb:0x93626aac6dd20b74!8m2!3d-25.2712272!4d-57.5822972!16s%2Fg%2F11bw3gz08t?authuser=0"> Dirección: Paraguay 2334 5 F</a>                   
-            </div>   
+                <a class="text-white"
+                    href="https://www.google.com/maps/place/Santisimo+Sacramento,+Asunci%C3%B3n,+Paraguay/@-25.2712895,-57.5903066,16z/data=!3m1!4b1!4m9!1m2!2m1!1sCalle+5+Norte+%232334,+PARAGUAY,+Aguachica,+Cesar!3m5!1s0x945da63bf71b0bfb:0x93626aac6dd20b74!8m2!3d-25.2712272!4d-57.5822972!16s%2Fg%2F11bw3gz08t?authuser=0">
+                    Dirección: Paraguay 2334 5 F</a>
+            </div>
         </div>
     </footer>
-
-    <!-- Scripts de JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>

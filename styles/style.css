@@ -1,5 +1,6 @@
 :root{
     --fondo_nav : #EFA3C8;
+    --fondo-header : #251B37;
     --black : black;
     --white : white;
 }
@@ -10,42 +11,32 @@
     box-sizing: border-box;
 }
 
-/* Header */
-
-.container-1{
-    padding: 0 !important;
-    max-width: 100%;
+.inactive{
+    display: none;
 }
+
+/* Header */
 header img {
     width: 13rem;
 }
 
 .bg-header{
-    background-color: #251B37;
+    background-color: var(--fondo-header);
 }
 
 .social-icons img{
-    width: 2.4rem;
-}
-.social-icons{
-    width: 50rem !important;
+    width: 3rem;
 }
 
 .nav2{
     background-color: var(--fondo_nav);
     height: 9vh;
-    padding: 0 !important;
-}
-#nav-2{
-    padding:  0 !important;
 }
 
 .nav2 li{
     list-style: none;
 }
-#nav-2{
-    padding: 0 !important;
-}
+
 .nav2 a {
     border-bottom: 2px solid transparent;
     position: relative;
@@ -69,8 +60,9 @@ header img {
     transform-origin: right;
 }
 
+/*aporte Carlos */
 ul li a.active {
-	border-bottom: solid black 1.5px;
+	border-bottom: solid  var(--fondo-header) 1.5px;
 }
 
 
@@ -78,7 +70,7 @@ ul{
     margin:0 !important;
 }
 .boton-carro{
-    background-color: #EFA3C8;
+    background-color: transparent;
     border: none;
     height: 3rem;
 }
@@ -90,16 +82,65 @@ ul{
     
 }
 
-
-/* main */
-
+/* Main del home */
 main{
-min-height:  70vh;
-object-fit: cover;
-background-image: linear-gradient(to bottom, #fad0c4, #c8a8e4);
-
+    background-image: url(../assets/1848-color-pastel.jpg);
+    background-size: contain;
+    position: relative;
+    min-height: 70vh;
 }
 
+.carousel1 img {
+    max-height: 70vh;
+    filter: grayscale(70%);
+}
+
+#carousel {
+    position: relative;
+}
+
+#carousel .overlay {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+#carousel .overlay .container, #carousel .overlay .row {
+    height: 100%;
+}
+
+/* info juguetes */
+#info-juguetes img{
+    width: 80%;
+    height: 19rem;
+    margin: 2rem 2rem;
+    border-radius: 5rem;
+}
+
+.imagenes-carrousel1{
+    width: 70%;
+}
+
+.btnjuguetes {
+    width: 8rem;
+}
+
+/* BUsqueda */
+.lupa{
+    background-color: transparent;
+    border: none;
+}
+
+.search-input{
+    width: 15rem;
+}
+
+/*cartas*/
 .boton-favoritos{
     border: none;
     background-color:   #5ea5b500;
@@ -113,8 +154,8 @@ background-image: linear-gradient(to bottom, #fad0c4, #c8a8e4);
     transition: border-color 0.3s ease-out;
 }
 
-.imagen-favoritos:hover {
-    background-color: yellow;
+#btn-favoritos img:hover {
+    border-color: yellow;
     transform: translateY(-5px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -129,8 +170,7 @@ background-image: linear-gradient(to bottom, #fad0c4, #c8a8e4);
 }
 
 .card-body{
-    height: 5rem;
-
+    height: 6rem;
 }
 
 #card-farmacia{
@@ -139,36 +179,38 @@ background-image: linear-gradient(to bottom, #fad0c4, #c8a8e4);
     border-style: dashed ;
     border-radius: 20px;
     margin: 2rem;
-    height: 24rem;
-    
+    height: 28rem;   
 }
+
 #card-farmacia:hover{
     border: #EFA3C8;
     transform: translateY(-2%) ;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
+
 .img-s {
 	height: 10em;
     margin-top: 0.5rem;
 	object-fit: cover;
 }
+
 .p-home{
     height: 1rem;
-    }
+}
+
 h6{
     height: 3rem;
-    }
+}
+
 #h4-title{
     height: 2rem;
     font-size: 1rem;
 }
 
-
 .quantity {
-        width: 150px;
-        margin: 0 auto;
-        margin-bottom: 1rem;
-        
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 1rem;   
 }
 
 .quantity-input {
@@ -178,7 +220,7 @@ h6{
     width: 2rem;
 }
 
-.boton-mas,.boton-menos{
+.boton-mas , .boton-menos{
     width: 30px;
     height: 30px;
     line-height: 0;
@@ -190,9 +232,11 @@ h6{
 .boton-menos {
     margin-right: -2px;
 }
+
 .boton-mas {
     margin-left: -2px;
 }
+
 .btn:focus, .btn:active {
     outline: none !important;
     box-shadow: none;
@@ -210,30 +254,60 @@ h6{
     border-color: #6c757d;
 }
 
-
-    [v-cloak] {
-        display: none;
-    }
-
-    
-/* footer */
-
-footer{
-    min-height: 15vh;
-    background-color: aliceblue;
-
+/*carrito aside*/
+aside{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: white;
+    border-bottom-left-radius: 5rem;
+    width: 30%;
+    height: 100%;
+    z-index: 10;
 }
+
+/*--------------------------------------------------------boton que lleva al inicio-----------------------------------------------------------*/
+#btn-scroll-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#btn-scroll-top:hover {
+    background-color: #555;
+}
+
+.fa-angle-up {
+    display: inline-block;
+    transform: rotate(-45deg);
+}
+
+/* footer */
+footer{
+    background-color: var(--fondo-header);
+}
+
 footer img{
-    width: 12rem;
-    object-fit: contain;
+    width: 6rem;
 }
 
 .footerdiv{
     display: flex;
     justify-content: space-around;
-    background-color: #251B37;
 }
 
-footer a{
-    text-decoration: none;
+[v-cloak] {
+    display: none;
 }
