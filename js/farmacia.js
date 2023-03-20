@@ -12,6 +12,7 @@ const app = createApp({
             favoritos:[],
             valorModal: {},
             valorContador: 0,
+            arrayCarrito:[]
         }
     },
     created() {
@@ -54,6 +55,11 @@ const app = createApp({
           this.valorContador = this.valorContador + 1;
           console.log(evento);
         }
+      },
+      sumarValor(evento){
+        this.valorContador = this.valorContador + 1;
+        console.log(evento);
+      }
   },
 })
 
