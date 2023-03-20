@@ -311,6 +311,11 @@ aside {
     color: white;
 }
 
+#submit {
+    background-color: var(--fondo-header);
+}
+
+
 /* footer */
 footer {
     background-color: var(--fondo-header);
