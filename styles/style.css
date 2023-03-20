@@ -255,6 +255,11 @@ h6{
     border-color: #6c757d;
 }
 
+.carritoCartas{
+    height: 1.5rem;
+    cursor: pointer;
+}
+
 /*carrito aside*/
 aside{
     position: absolute;
@@ -262,9 +267,25 @@ aside{
     top: 0;
     background-color: white;
     border-bottom-left-radius: 5rem;
-    width: 30%;
+    width: 40%;
     height: 100%;
     z-index: 10;
+}
+
+.cars-compra{
+    background-color: #251B37;
+}
+
+.img-carrito {
+    width: 5rem;
+}
+
+.mensajeCarrito {
+    width: 8rem;
+}
+
+.imagen-cierre , .flecha-atras{
+    cursor: pointer;
 }
 
 /*modal*/
@@ -272,6 +293,7 @@ aside{
     height: 30rem;
     object-fit: cover;
 }
+
 
 /*--------------------------------------------------------boton que lleva al inicio-----------------------------------------------------------*/
 #btn-scroll-top {
@@ -319,3 +341,8 @@ footer img{
     display: none;
 }
 
+@media only screen and (max-width: 900px) {
+    aside{
+        width: 100%;
+    }
+}

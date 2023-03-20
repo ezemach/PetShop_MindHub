@@ -6,46 +6,70 @@ const app = createApp({
             // Inicializamos las variables
             datos: [],
             datosJuguetes: [],
-            datosJuguetesFiltrados: [{},{}],
-            valorBusqueda: "",
+            datosJuguetesFiltrados: [{}, {}],
             isAsideInactive: true,
+            valorBusqueda: "",
+            favoritos:[],
             valorModal: {},
             valorContador: 0,
+            arrayCarrito:[]
         }
     },
-    created(){
-        fetch ("https://mindhub-xj03.onrender.com/api/petshop")
-        .then(response => response.json())
-        .then(data => {
-            this.datos = data;
-            this.datosJuguetes = data.filter(producto => producto.categoria === "jugueteria")
-            this.datosJuguetesFiltrados = data.filter(producto => producto.categoria === "jugueteria")
-        })
-        .catch(error => console.log(error))
-    },
-    methods : {
-        filtroBusqueda(){ 
-            this.datosJuguetesFiltrados = this.datosJuguetes.filter( producto => 
-            producto.producto.toLowerCase().includes( this.valorBusqueda.toLowerCase()) 
-        )},
-        aparecerCarrito() {
-            this.isAsideInactive = !this.isAsideInactive;
-        },
-        evento(evento){
+    created() {
+      fetch("https://mindhub-xj03.onrender.com/api/petshop")
+          .then(response => response.json())
+          .then(data => {
+              this.datos = data;
+              this.datosJuguetes = data.filter(producto => producto.categoria == "jugueteria");
+              this.datosJuguetesFiltrados = data.filter(producto => producto.categoria == "jugueteria");
+              this.favoritos= JSON.parse(localStorage.getItem("favoritos"))||[];
+          })
+          .catch(error => console.log(error))
+  },
+  methods: {
+      filtroBusqueda() {
+          this.datosJuguetesFiltrados = this.datosJuguetes.filter(producto =>
+              producto.producto.toLowerCase().includes(this.valorBusqueda.toLowerCase())
+          )
+      },
+
+      aparecerCarrito() {
+          this.isAsideInactive = !this.isAsideInactive;
+      },
+
+      restarValor(){
+        if(this.valorContador == 0){
+          this.valorContador = 0
+        } else {
+          this.valorContador = this.valorContador - 1;
+        }
+      },
+
+      borrarFavoritos(){
+          this.favoritos=[]
+      },
+
+      evento(evento){
           this.valorModal = this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt)
-        },
-        restarValor(){
-          if(this.valorContador == 0){
-            this.valorContador = 0
-          } else {
-            this.valorContador = this.valorContador - 1;
-          }
-        },
-        sumarValor(evento){
-          this.valorContador = this.valorContador + 1;
-          console.log(evento);
-        }
-    },
+      },
+
+      handleFav(){
+          localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
+      },
+      
+      sumarValor(evento){
+        this.valorContador = this.valorContador + 1;
+      },
+
+      añadirCarrito(evento){
+        this.arrayCarrito.push(this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt))
+      },
+
+      borrarRegistro(evento){
+        let indice = this.arrayCarrito.indexOf(this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt));
+        this.arrayCarrito.splice(indice , 1)
+      }
+  },
 })
 
 app.mount("#app");
