@@ -30,7 +30,7 @@ header img {
 
 .nav2{
     background-color: var(--fondo_nav);
-    height: 9vh;
+    height: 8vh;
 }
 
 .nav2 li{
@@ -61,9 +61,9 @@ header img {
 }
 
 /*aporte Carlos */
-ul li a.active {
-	border-bottom: solid  var(--fondo-header) 1.5px;
-}
+/* ul li a.active {
+	border-bottom: solid black 1.5px;
+} */
 
 
 ul{
@@ -79,7 +79,7 @@ ul{
     width: 3rem;
     object-fit: contain;
     background-color: none;
-    
+    cursor: pointer;
 }
 
 /* Main del home */
@@ -192,6 +192,7 @@ main{
 	height: 10em;
     margin-top: 0.5rem;
 	object-fit: cover;
+    cursor: pointer;
 }
 
 .p-home{
@@ -266,6 +267,12 @@ aside{
     z-index: 10;
 }
 
+/*modal*/
+.img-modal{
+    height: 30rem;
+    object-fit: cover;
+}
+
 /*--------------------------------------------------------boton que lleva al inicio-----------------------------------------------------------*/
 #btn-scroll-top {
     display: none;
@@ -292,6 +299,10 @@ aside{
 .fa-angle-up {
     display: inline-block;
     transform: rotate(-45deg);
+}
+
+#letra-justify{
+    text-align: justify;
 }
 
 /* footer */

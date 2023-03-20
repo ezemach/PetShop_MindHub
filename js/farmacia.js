@@ -9,6 +9,8 @@ const app = createApp({
             datosFarmaciaFiltrados: [{}, {}],
             isAsideInactive: true,
             valorBusqueda: "",
+            favoritos:[],
+            valorModal: {},
         }
     },
     created() {
@@ -18,6 +20,7 @@ const app = createApp({
                 this.datos = data;
                 this.datosFarmacia = data.filter(producto => producto.categoria === "farmacia");
                 this.datosFarmaciaFiltrados = data.filter(producto => producto.categoria === "farmacia");
+                this.favoritos= JSON.parse(localStorage.getItem("favoritos"))||[];
             })
             .catch(error => console.log(error))
     },
@@ -29,6 +32,15 @@ const app = createApp({
         },
         aparecerCarrito() {
             this.isAsideInactive = !this.isAsideInactive;
+        },
+        borrarFavoritos(){
+            this.favoritos=[]
+        },
+        evento(evento){
+            this.valorModal = this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt)
+        },
+        handleFav(){
+            localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
         }
     },
 })
