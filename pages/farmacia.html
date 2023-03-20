@@ -9,7 +9,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="shortcut icon" href="../assets/icono.png" type="image/x-icon">
-    <title>Document</title>
+    <title>Patitas | Farmacia</title>
 </head>
 
 <body>
@@ -68,12 +68,19 @@
         </div>
     </header>
     <main id="app">
-        <div class="p-3 d-flex flex-wrap">
-            <div class="d-flex justify-content-end align-items-center col-12 col-md-7">
-                <input class="form-control me-2 search-input" type="text" name="nameEvents" v-model="valorBusqueda" @input="filtroBusqueda" placeholder="Buscar"/>
-                <span class="input-group-text d-inline m-0 p-0 lupa" id="addon-wrapping"> <img src="../assets/luupa.png" alt="" width="30"></span>
+        <div class="p-3 d-flex flex-wrap col-10 d-flex align-items-center justify-content-center align-items-center mx-auto ">
+            <div class="ml-5">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    Ver favoritos
+                </button>
             </div>
-            <div class="d-flex justify-content-end col-12 col-md-5 pt-2 pt-md-0">
+            <div class="d-flex justify-content-end align-items-center col-10 col-md-4 flex-wrap">
+                <input class="form-control me-2 search-input" type="text" name="nameEvents" v-model="valorBusqueda"
+                    @input="filtroBusqueda" placeholder="Buscar" />
+                <span class="input-group-text d-inline m-0 p-0 lupa" id="addon-wrapping"> <img src="../assets/luupa.png"
+                        alt="" width="30"></span>
+            </div>
+            <div class="d-flex justify-content-end col-12 col-md-5 pt-2 pt-md-0 ">
                 <button class="boton-carro" id="btn-carro" @click="aparecerCarrito">
                     <img class="imagen-carrito" src="../assets/carro.png" alt="carrito-compra">
                 </button>
@@ -81,26 +88,32 @@
         </div>
         <!-- Cartas -->
         <section class="d-flex justify-content-around flex-wrap mt-4 " id="section-farmacia">
-            <template v-if="datosFarmaciaFiltrados.length > 0" v-for="datos of datosFarmaciaFiltrados" >
+            <template v-if="datosFarmaciaFiltrados.length > 0" v-for="datos of datosFarmaciaFiltrados">
                 <div class="card mt-4" style="width: 16rem" id="card-farmacia">
                     <img :src="datos.imagen" class="card-img-top img-s" :alt="datos.producto" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="evento"/>
                     <div class="card-body h-5">
-                        <h4 class="card-title text-center" id="h4-title" data-bs-toggle="modal" data-bs-target="#exampleModal">{{datos.producto}}</h4>
-                        <p class="text-center mb-0">Favoritos</p>
-                            <div class="form-check form-switch d-inline-block d-flex justify-content-center">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                            </div>
-                        <p class="card-text p-home text-center text-success" style="font-weight: bold;"> $ {{datos.precio}}</p>
+                        <h4 class="card-title text-center" id="h4-title" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">{{datos.producto}}</h4>
+                        <div class="form-check form-switch d-flex flex-column align-items-center">
+                            <label class="form-check-label me-5" :for="'card-'+datos.producto">Favoritos</label>
+                            <input class="form-check-input" type="checkbox" role="switch" v-model="favoritos"
+                                :value="datos.producto" :id="'card-'+datos.producto" @change="handleFav">
+                        </div>
+                        <p class="card-text p-home text-center text-success" style="font-weight: bold;"> $
+                            {{datos.precio}}</p>
                         <template v-if="datos.disponibles == 0">
                             <div class="input-group quantity d-flex justify-content-center">
                                 <div class="botones-cantidad input-group-prepend">
-                                    <button class="boton-menos btn btn-outline-secondary minus-btn disabled" type="button">-</button>
+                                    <button class="boton-menos btn btn-outline-secondary minus-btn disabled"
+                                        type="button">-</button>
                                 </div>
                                 <input type="text" class="form-control quantity-input" v-model="valorContador">
                                 <div class="input-group-append">
-                                    <button class="boton-mas btn btn-outline-secondary plus-btn disabled" type="button">+</button>
+                                    <button class="boton-mas btn btn-outline-secondary plus-btn disabled"
+                                        type="button">+</button>
                                 </div>
-                                <p class="pt-2">Añadir al <a><img src="../assets/carro.png" width="20" alt="" class="imagen-carrito"></a></p>
+                                <p class="pt-2">Añadir al <a><img src="../assets/carro.png" width="20" alt=""
+                                            class="border-0"></a></p>
                             </div>
                             <div class="d-flex justify-content-between align-items-center price1 info4">
                                 <h5 class="fs-5">{{datos.disponibles}} Uds.</h5>
@@ -177,16 +190,111 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex flex-column justify-content-center">
-                            <img :src="valorModal.imagen" class="card-img-top img-modal" :alt="valorModal.producto"/>
-                            <div class="card-body h-5">
-                                <p class="text-dark pt-2">{{valorModal.descripcion}}</p>
-                                <p class="card-text p-home text-center text-success" style="font-weight: bold;"> $ {{valorModal.precio}}</p>
-                                <h5 class="fs-5 text-center">stock: {{valorModal.disponibles}} Uds.</h5>
-                            </div>
+                        <img :src="valorModal.imagen" class="card-img-top img-modal" :alt="valorModal.producto" />
+                        <div class="card-body h-5">
+                            <p class="text-dark pt-2" id="letra-justify">{{valorModal.descripcion}}</p>
+                            <p class="card-text p-home text-center text-success" style="font-weight: bold;"> $
+                                {{valorModal.precio}}</p>
+                            <h5 class="fs-5 text-center">stock: {{valorModal.disponibles}} Uds.</h5>
+                        </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between align-items-center">
                         <p>Añadir al <a><img src="../assets/carro.png" width="20" alt="" class="imagen-carrito"></a></p>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal favoritos -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
+            <div class="modal-dialog modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Tus productos favoritos</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <template v-if="datosFarmaciaFiltrados.length > 0" v-for="datos of datosFarmaciaFiltrados">
+                            <div v-if="favoritos.includes(datos.producto)" class="card mt-4 mx-auto"
+                                style="width: 16rem" id="card-farmacia">
+                                <img :src="datos.imagen" class="card-img-top img-s" alt="producto-perros"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                                <div class="card-body h-5">
+                                    <h4 class="card-title text-center" id="h4-title" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">{{datos.producto}}</h4>
+                                        <div class="form-check form-switch d-flex flex-column align-items-center">
+                                            <label class="form-check-label me-4" :for="'card-'+datos.producto">Favoritos</label>
+                                            <input class="form-check-input" type="checkbox" role="switch" v-model="favoritos"
+                                                :value="datos.producto" :id="'card-'+datos.producto">
+                                        </div>
+                                    <p class="card-text p-home text-center text-success" style="font-weight: bold;"> $
+                                        {{datos.precio}}</p>
+                                    <template v-if="datos.disponibles == 0">
+                                        <div class="input-group quantity d-flex justify-content-center">
+                                            <div class="botones-cantidad input-group-prepend">
+                                                <button class="boton-menos btn btn-outline-secondary minus-btn disabled"
+                                                    type="button">-</button>
+                                            </div>
+                                            <input type="text" class="form-control quantity-input" value="1">
+                                            <div class="input-group-append">
+                                                <button class="boton-mas btn btn-outline-secondary plus-btn disabled"
+                                                    type="button">+</button>
+                                            </div>
+                                            <p class="pt-2">Añadir al <a><img src="../assets/carro.png" width="20"
+                                                        alt="" class="border-0"></a></p>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center price1 info4">
+                                            <h5 class="fs-5">{{datos.disponibles}} Uds.</h5>
+                                            <p class="badge text-bg-danger mb-0">Agotado</p>
+                                        </div>
+                                    </template>
+                                    <template v-if="((datos.disponibles > 0) && (datos.disponibles <= 5))">
+                                        <div class="input-group quantity d-flex justify-content-center">
+                                            <div class="botones-cantidad input-group-prepend">
+                                                <button class="boton-menos btn btn-outline-secondary minus-btn"
+                                                    type="button">-</button>
+                                            </div>
+                                            <input type="text" class="form-control quantity-input" value="1">
+                                            <div class="input-group-append">
+                                                <button class="boton-mas btn btn-outline-secondary plus-btn"
+                                                    type="button">+</button>
+                                            </div>
+                                            <p class="pt-2">Añadir al <a><img src="../assets/carro.png" width="20"
+                                                        alt=""></a></p>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center price1 info4">
+                                            <h5 class="fs-5">{{datos.disponibles}} Uds.</h5>
+                                            <p class="badge text-bg-warning mb-0">Últimas unidades</p>
+                                        </div>
+                                    </template>
+                                    <template v-if="datos.disponibles > 5">
+                                        <div class="input-group quantity d-flex justify-content-center">
+                                            <div class="botones-cantidad input-group-prepend">
+                                                <button class="boton-menos btn btn-outline-secondary minus-btn"
+                                                    type="button">-</button>
+                                            </div>
+                                            <input type="text" class="form-control quantity-input" value="1">
+                                            <div class="input-group-append">
+                                                <button class="boton-mas btn btn-outline-secondary plus-btn"
+                                                    type="button">+</button>
+                                            </div>
+                                            <p class="pt-2">Añadir al <a><img src="../assets/carro.png" width="20"
+                                                        alt=""></a></p>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center price1 info4">
+                                            <h5 class="fs-5">{{datos.disponibles}} Uds.</h5>
+                                            <p class="badge text-bg-success mb-0">Unidades disponibles</p>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">
+                            Salir</button>
+                        <button type="button" class="btn btn-primary bg-danger" v-on:click="borrarFavoritos">Eliminar
+                            todos los favoritos </button>
                     </div>
                 </div>
             </div>
