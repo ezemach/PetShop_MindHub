@@ -20,8 +20,11 @@ const app = createApp({
           .then(response => response.json())
           .then(data => {
               this.datos = data;
-              this.datosJuguetes = data.filter(producto => producto.categoria == "jugueteria");
-              this.datosJuguetesFiltrados = data.filter(producto => producto.categoria == "jugueteria");
+              for (producto of this.datos){
+                producto.contador = 0
+              }
+              this.datosJuguetes = this.datos.filter(producto => producto.categoria == "jugueteria");
+              this.datosJuguetesFiltrados = this.datos.filter(producto => producto.categoria == "jugueteria");
               this.favoritos= JSON.parse(localStorage.getItem("favoritos"))||[];
           })
           .catch(error => console.log(error))
