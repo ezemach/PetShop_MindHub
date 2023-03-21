@@ -41,7 +41,7 @@
                                 <a class="nav-link fs-4" href="../pages/farmacia.html">Farmacia</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fs-4" href="./pages/contact.html">Contact</a>
+                                <a class="nav-link fs-4" href="../pages/contact.html">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -61,7 +61,7 @@
                         <a class="nav-link" href="../pages/farmacia.html">Farmacia</a>
                     </li>
                     <li class="nav-item pe-4 ps-4 fs-2">
-                        <a class="nav-link" href="./pages/contact.html">Contacto</a>
+                        <a class="nav-link" href="../pages/contact.html">Contacto</a>
                     </li>
                 </ul>
             </nav>
@@ -108,7 +108,7 @@
                                     <button class="boton-menos btn btn-outline-secondary minus-btn disabled"
                                         type="button">-</button>
                                 </div>
-                                <input type="text" class="form-control quantity-input" v-model="valorContador">
+                                <input type="text" class="form-control quantity-input" :value="datos.contador">
                                 <div class="input-group-append">
                                     <button class="boton-mas btn btn-outline-secondary plus-btn disabled"
                                         type="button">+</button>
@@ -125,26 +125,26 @@
                         </template>
                         <template v-if="((datos.disponibles > 0) && (datos.disponibles <= 5))">
                             <div class="input-group quantity d-flex justify-content-center">
-                                <template v-if="valorContador == datos.disponibles">
+                                <template v-if="datos.contador == datos.disponibles">
                                     <div class="botones-cantidad input-group-prepend">
                                         <button class="boton-menos btn btn-outline-secondary minus-btn" type="button"
-                                            @click="restarValor">-</button>
+                                            @click="restarValor" :name="datos.producto">-</button>
                                     </div>
-                                    <input type="text" class="form-control quantity-input" v-model="valorContador">
+                                    <input type="text" class="form-control quantity-input" :value="datos.contador">
                                     <div class="input-group-append">
                                         <button class="boton-mas btn btn-outline-secondary plus-btn disabled"
-                                            type="button" @click="sumarValor">+</button>
+                                            type="button" @click="sumarValor" :name="datos.producto">+</button>
                                     </div>
                                 </template>
                                 <template v-else>
                                     <div class="botones-cantidad input-group-prepend">
                                         <button class="boton-menos btn btn-outline-secondary minus-btn" type="button"
-                                            @click="restarValor">-</button>
+                                            @click="restarValor" :name="datos.producto">-</button>
                                     </div>
-                                    <input type="text" class="form-control quantity-input" v-model="valorContador">
+                                    <input type="text" class="form-control quantity-input" :value="datos.contador">
                                     <div class="input-group-append">
                                         <button class="boton-mas btn btn-outline-secondary plus-btn" type="button"
-                                            @click="sumarValor">+</button>
+                                            @click="sumarValor" :name="datos.producto">+</button>
                                     </div>
                                 </template>
                             </div>
@@ -161,26 +161,26 @@
                         </template>
                         <template v-if="datos.disponibles > 5">
                             <div class="input-group quantity d-flex justify-content-center">
-                                <template v-if="valorContador == datos.disponibles">
+                                <template v-if="datos.contador == datos.disponibles">
                                     <div class="botones-cantidad input-group-prepend">
                                         <button class="boton-menos btn btn-outline-secondary minus-btn" type="button"
-                                            @click="restarValor">-</button>
+                                            @click="restarValor" :name="datos.producto">-</button>
                                     </div>
-                                    <input type="text" class="form-control quantity-input" v-model="valorContador">
+                                    <input type="text" class="form-control quantity-input" :value="datos.contador">
                                     <div class="input-group-append">
                                         <button class="boton-mas btn btn-outline-secondary plus-btn disabled"
-                                            type="button" @click="sumarValor">+</button>
+                                            type="button" @click="sumarValor" :name="datos.producto">+</button>
                                     </div>
                                 </template>
                                 <template v-else>
                                     <div class="botones-cantidad input-group-prepend">
                                         <button class="boton-menos btn btn-outline-secondary minus-btn" type="button"
-                                            @click="restarValor">-</button>
+                                            @click="restarValor" :name="datos.producto">-</button>
                                     </div>
-                                    <input type="text" class="form-control quantity-input" v-model="valorContador">
+                                    <input type="text" class="form-control quantity-input" :value="datos.contador">
                                     <div class="input-group-append">
                                         <button class="boton-mas btn btn-outline-secondary plus-btn" type="button"
-                                            @click="sumarValor">+</button>
+                                            @click="sumarValor" :name="datos.producto">+</button>
                                     </div>
                                 </template>
                             </div>
@@ -220,12 +220,6 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <p class="pt-2">Añadir al</p>
-                            <img src="../assets/carro.png" class="carritoCartas ps-1" :alt="valorModal.producto"
-                                @click="añadirCarrito" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal3">
-                        </div>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
@@ -240,7 +234,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <template v-if="datosJuguetesFiltrados.length > 0" v-for="datos of datosJuguetesFiltrados">
+                        <template v-if="favoritos.length > 0" v-for="datos of datosJuguetesFiltrados">
                             <div v-if="favoritos.includes(datos.producto)" class="card mt-4 mx-auto"
                                 style="width: 16rem" id="card-farmacia">
                                 <img :src="datos.imagen" class="card-img-top img-s" alt="producto-perros"
@@ -262,10 +256,10 @@
                                                 <button class="boton-menos btn btn-outline-secondary minus-btn disabled"
                                                     type="button">-</button>
                                             </div>
-                                            <input type="text" class="form-control quantity-input" value="1">
+                                            <input type="text" class="form-control quantity-input" :value="datos.contador">
                                             <div class="input-group-append">
                                                 <button class="boton-mas btn btn-outline-secondary plus-btn disabled"
-                                                    type="button">+</button>
+                                                    type="button" :name="datos.producto">+</button>
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-center">
@@ -280,15 +274,28 @@
                                     </template>
                                     <template v-if="((datos.disponibles > 0) && (datos.disponibles <= 5))">
                                         <div class="input-group quantity d-flex justify-content-center">
-                                            <div class="botones-cantidad input-group-prepend">
-                                                <button class="boton-menos btn btn-outline-secondary minus-btn"
-                                                    type="button">-</button>
-                                            </div>
-                                            <input type="text" class="form-control quantity-input" value="1">
-                                            <div class="input-group-append">
-                                                <button class="boton-mas btn btn-outline-secondary plus-btn"
-                                                    type="button">+</button>
-                                            </div>
+                                            <template v-if="datos.contador == datos.disponibles">
+                                                <div class="botones-cantidad input-group-prepend">
+                                                    <button class="boton-menos btn btn-outline-secondary minus-btn"
+                                                        type="button" :name="datos.producto" @click="restarValor">-</button>
+                                                </div>
+                                                <input type="text" class="form-control quantity-input" :value="datos.contador">
+                                                <div class="input-group-append">
+                                                    <button class="boton-mas btn btn-outline-secondary plus-btn disabled"
+                                                        type="button" :name="datos.producto">+</button>
+                                                </div>
+                                            </template>
+                                            <template v-if="datos.contador < datos.disponibles">
+                                                <div class="botones-cantidad input-group-prepend">
+                                                    <button class="boton-menos btn btn-outline-secondary minus-btn"
+                                                        type="button" :name="datos.producto" @click="restarValor">-</button>
+                                                </div>
+                                                <input type="text" class="form-control quantity-input" :value="datos.contador">
+                                                <div class="input-group-append">
+                                                    <button class="boton-mas btn btn-outline-secondary plus-btn"
+                                                        type="button" :name="datos.producto" @click="sumarValor">+</button>
+                                                </div>
+                                            </template>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-center">
                                             <p class="pt-2">Añadir al</p>
@@ -303,15 +310,28 @@
                                     </template>
                                     <template v-if="datos.disponibles > 5">
                                         <div class="input-group quantity d-flex justify-content-center">
-                                            <div class="botones-cantidad input-group-prepend">
-                                                <button class="boton-menos btn btn-outline-secondary minus-btn"
-                                                    type="button">-</button>
-                                            </div>
-                                            <input type="text" class="form-control quantity-input" value="1">
-                                            <div class="input-group-append">
-                                                <button class="boton-mas btn btn-outline-secondary plus-btn"
-                                                    type="button">+</button>
-                                            </div>
+                                            <template v-if="datos.contador == datos.disponibles">
+                                                <div class="botones-cantidad input-group-prepend">
+                                                    <button class="boton-menos btn btn-outline-secondary minus-btn"
+                                                        type="button" :name="datos.producto" @click="restarValor">-</button>
+                                                </div>
+                                                <input type="text" class="form-control quantity-input" :value="datos.contador">
+                                                <div class="input-group-append">
+                                                    <button class="boton-mas btn btn-outline-secondary plus-btn disabled"
+                                                        type="button" :name="datos.producto">+</button>
+                                                </div>
+                                            </template>
+                                            <template v-if="datos.contador < datos.disponibles">
+                                                <div class="botones-cantidad input-group-prepend">
+                                                    <button class="boton-menos btn btn-outline-secondary minus-btn"
+                                                        type="button" :name="datos.producto" @click="restarValor">-</button>
+                                                </div>
+                                                <input type="text" class="form-control quantity-input" :value="datos.contador">
+                                                <div class="input-group-append">
+                                                    <button class="boton-mas btn btn-outline-secondary plus-btn"
+                                                        type="button" :name="datos.producto" @click="sumarValor">+</button>
+                                                </div>
+                                            </template>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-center">
                                             <p class="pt-2">Añadir al</p>
@@ -326,6 +346,9 @@
                                     </template>
                                 </div>
                             </div>
+                        </template>
+                        <template v-else>
+                            <h3 class="text-center">No has agregado nada a favoritos 😯</h3>
                         </template>
                     </div>
                     <div class="modal-footer">
@@ -357,9 +380,11 @@
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body text-center">
-                        Compra exitosa
-                    </div>
+                    <template v-if="arrayCarrito.length > 0">
+                        <div class="modal-body text-center">
+                            Compra exitosa
+                        </div>
+                    </template>    
                 </div>
             </div>
         </div>
@@ -379,20 +404,34 @@
                             <div class="d-flex justify-content-evenly align-items-center pt-2 gap-2">
                                 <img class="img-carrito" :src="productoCarrito.imagen" :alt="productoCarrito.producto">
                                 <p class="mensajeCarrito pb-0">{{productoCarrito.producto}}</p>
-                                <div class="botones-cantidad input-group-prepend">
-                                    <button class="boton-menos btn btn-outline-secondary minus-btn" type="button">-</button>
-                                </div>
-                                <input type="text" class="form-control quantity-input" value="1">
-                                <div class="input-group-append">
-                                    <button class="boton-mas btn btn-outline-secondary plus-btn" type="button">+</button>
-                                </div>
-                                <p class="text-center mb-0">$ {{productoCarrito.precio}}</p>
+                                <template v-if="productoCarrito.contador == productoCarrito.disponibles">
+                                    <div class="botones-cantidad input-group-prepend">
+                                        <button class="boton-menos btn btn-outline-secondary minus-btn" type="button" :name="productoCarrito.producto" @click="restarCarrito">-</button>
+                                    </div>
+                                    <input type="text" class="form-control quantity-input" :value="productoCarrito.contador">
+                                    <div class="input-group-append">
+                                        <button class="boton-mas btn btn-outline-secondary plus-btn disabled" type="button" :name="productoCarrito.producto">+</button>
+                                    </div>
+                                </template>
+                                <template v-if="productoCarrito.contador < productoCarrito.disponibles">
+                                    <div class="botones-cantidad input-group-prepend">
+                                        <button class="boton-menos btn btn-outline-secondary minus-btn" type="button" :name="productoCarrito.producto" @click="restarCarrito">-</button>
+                                    </div>
+                                    <input type="text" class="form-control quantity-input" :value="productoCarrito.contador">
+                                    <div class="input-group-append">
+                                        <button class="boton-mas btn btn-outline-secondary plus-btn" type="button" :name="productoCarrito.producto" @click="sumarCarrito">+</button>
+                                    </div>
+                                </template>
+                                <p class="text-center mb-0">$ {{productoCarrito.precio * productoCarrito.contador}}</p>
                                 <img src="../assets/icon_close.png" class="imagen-cierre" :alt="productoCarrito.producto"
                                     @click="borrarRegistro">
                             </div>
                         </template>
                         <template v-else>
                             <h3 class="pt-3">No has añadido nada al carrito 😥</h3>
+                        </template>
+                        <template v-if="arrayCarrito.length > 0">
+                            <p>Total de tu compra : {{totalCompra}}</p>
                         </template>
                     </div>
                 </div>

@@ -1,16 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Patitas - Contact</title>
+    <link rel="shortcut icon" href="../assets/icono.png" type="image/x-icon">
     <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body>
-    <main>
 
+<body>
+    <header>
+        <div class="col pe-0">
+            <nav class="navbar navbar-expand-lg bg-header navbar-dark">
+                <div class="container">
+                    <img class="ms-auto me-auto" src="../assets/logo.png" alt="logo">
+                    <div class="social-icons ms-5 col-9 text-end d-none d-lg-block">
+                        <a href="https://www.instagram.com/" class="ps-1 pe-1"><img src="../assets/instagram.png"
+                                alt="Ins" class="mt-2"></a>
+                        <a href="https://www.facebook.com/" class="ps-1 pe-1"><img src="../assets/facebook.png"
+                                alt="Face" class="mt-2"></a>
+                        <a href="https://api.whatsapp.com/send?phone=3225678909" class="ps-1 pe-1"><img
+                                src="../assets/whatsapp.png" alt="Wasap" class="mt-2"></a>
+                        <a href="https://twitter.com/" class="ps-1 pe-1"><img src="../assets/twiter.png" alt="Twi"
+                                class="mt-2"></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-lg-none">
+                            <li class="nav-item">
+                                <a class="nav-link active fs-4" aria-current="page" href="../index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" href="../pages/juguetes.html">Jugueteria</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" href="../pages/farmacia.html">Farmacia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-12 d-none d-lg-block pe-0">
+            <nav class="nav2">
+                <ul class="d-flex justify-content-center text-white">
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" href="../pages/juguetes.html">Jugueteria</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" href="../pages/farmacia.html">Farmacia</a>
+                    </li>
+                    <li class="nav-item pe-4 ps-4 fs-2">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="d-flex justify-content-center">
+
+        <div class="container-fluid d-flex w-50 h-50 m-5 p-3 py-2 align-items-center gap-2 mt-5 pb-5 col-12" id="formContact">
+        <form id="form-section" class="d-flex flex-column justify-content-center py-2 needs-validation col-12 col-md-12 col-xl-6" action="./show-data.html" method="get">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label fs-3">Nombre y Apellido</label>
+                <input type="text" class="form-control" id="" placeholder="Nombre y Apellido" name="Nombre y Apellido">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label fs-3">telefono</label>
+                <input type="number" class="form-control" id="" placeholder="Teléfono" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label fs-3">Email</label>
+                <input type="email" class="form-control" id="" placeholder="nombre@ejemplo.com"
+                    name="email">
+            </div>
+            <div class=" mb-3">
+                <label for="exampleFormControlInput2" class="form-label fs-3">Mascota</label>
+                <input type="text" class="form-control" id="" placeholder="Nombre de Mascota" name="email">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea3" class="form-label fs-3">Su Comentario</label>
+                <textarea class="form-control" id="" rows="5" name="Mensajes"></textarea>
+            </div>
+            <div class="mb-3 d-flex justify-content-center">
+                <input type="submit" value="Enviar" class="d-flex btn btn-dark fs-5 col-10 justify-content-center " id="submit">
+            </div>
+        </form>
+
+        <div class="d-flex flex-column align-items-center justify-content-around m-4">
+            <h4 class="d-none d-xl-block col-xl-10" id="textoForm">Comuniquese con nosotros para solicitar más información!</h4>
+        <img src="../assets/perritoContact.png" class=" d-flex d-none d-xl-block col-xl-10" alt="">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.879769936532!2d-58.388111084402986!3d-34.68298378043916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcccc67d8841a1%3A0x6cbb3384735c977e!2sParaguay%205%2C%20B1868BXA%20Pi%C3%B1eyro%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1679400988000!5m2!1ses-419!2sar"
+            width="400" height="250" style="border-radius: 2%;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" class="d-flex d-none d-xl-block col-xl-10"></iframe>
+            <h4 class="d-none d-xl-block col-xl-10" id="textoForm">Nuestras Oficinas!</h4>
+        </div>
+        </div>
     </main>
-    
+
+    <footer>
+        <div class="footerdiv pt-2 pb-2">
+            <img src="../assets/perro.png" alt="" class="object-fit-cover">
+            <div class=" text-center d-flex flex-column justify-content-around ">
+                <a class="text-white" href="tel:1528764525">Tel: (571) 430 41 30</a>
+                <a class="text-white" href="tel:1528764525">Cel : (571) 350 628 0899</a>
+                <a class="text-white" href="mailto:Patitas-shop@hotmail.com"> Patitas-shop@hotmail.com</a>
+                <a class="text-white"
+                    href="https://www.google.com/maps/place/Santisimo+Sacramento,+Asunci%C3%B3n,+Paraguay/@-25.2712895,-57.5903066,16z/data=!3m1!4b1!4m9!1m2!2m1!1sCalle+5+Norte+%232334,+PARAGUAY,+Aguachica,+Cesar!3m5!1s0x945da63bf71b0bfb:0x93626aac6dd20b74!8m2!3d-25.2712272!4d-57.5822972!16s%2Fg%2F11bw3gz08t?authuser=0">
+                    Dirección: Paraguay 2334 5 F</a>
+            </div>
+        </div>
+        <div class="social-icons col-12 d-flex justify-content-center d-lg-none pb-2">
+            <a href="https://www.instagram.com/" class="ps-1 pe-1"><img src="../assets/instagram.png" alt="Ins"
+                    class="mt-2"></a>
+            <a href="https://www.facebook.com/" class="ps-1 pe-1"><img src="../assets/facebook.png" alt="Face"
+                    class="mt-2"></a>
+            <a href="https://api.whatsapp.com/send?phone=3225678909" class="ps-1 pe-1"><img src="../assets/whatsapp.png"
+                    alt="Wasap" class="mt-2"></a>
+            <a href="https://twitter.com/" class="ps-1 pe-1"><img src="../assets/twiter.png" alt="Twi" class="mt-2"></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../js/contact.js"></script>
 </body>
+
 </html>
