@@ -25,9 +25,10 @@ const app = createApp({
               }
               this.datosJuguetes = this.datos.filter(producto => producto.categoria == "jugueteria");
               this.datosJuguetesFiltrados = this.datos.filter(producto => producto.categoria == "jugueteria");
-              this.favoritos= JSON.parse(localStorage.getItem("favoritos"))||[];
           })
           .catch(error => console.log(error))
+          this.favoritos= JSON.parse(localStorage.getItem("favoritos"))||[];
+          this.arrayCarrito = JSON.parse(localStorage.getItem("arrayCarrito")) || [];
   },
   methods: {
       filtroBusqueda() {
@@ -90,13 +91,14 @@ const app = createApp({
 
       añadirCarrito(evento){
         this.arrayCarrito.push(this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt))
-        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0);
+        localStorage.setItem("arrayCarrito", JSON.stringify(this.arrayCarrito));
       },
 
       borrarRegistro(evento){
-        let indice = this.arrayCarrito.indexOf(this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt));
-        this.arrayCarrito.splice(indice , 1)
-        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        this.arrayCarrito = this.arrayCarrito.filter(e => e.producto !== evento.target.alt);
+        localStorage.setItem("arrayCarrito", JSON.stringify(this.arrayCarrito));
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0);
       }
   },
 })
