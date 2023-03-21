@@ -39,10 +39,10 @@
                                 <a class="nav-link fs-4" aria-current="page" href="../index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fs-4 active" href="../pages/juguetes.html">Jugueteria</a>
+                                <a class="nav-link fs-4" href="../pages/juguetes.html">Jugueteria</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link fs-4" href="#">Farmacia</a>
+                                <a class="nav-link fs-4 active" href="#">Farmacia</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link fs-4" href="./pages/contact.html">Contact</a>
@@ -59,10 +59,10 @@
                         <a class="nav-link" aria-current="page" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item pe-4 ps-4 fs-2">
-                        <a class="nav-link active" href="../pages/juguetes.html">Jugueteria</a>
+                        <a class="nav-link" href="../pages/juguetes.html">Jugueteria</a>
                     </li>
                     <li class="nav-item pe-4 ps-4 fs-2">
-                        <a class="nav-link" href="#">Farmacia</a>
+                        <a class="nav-link active" href="#">Farmacia</a>
                     </li>
                     <li class="nav-item pe-4 ps-4 fs-2">
                         <a class="nav-link" href="./pages/contact.html">Contact</a>
@@ -72,12 +72,19 @@
         </div>
     </header>
     <main id="app">
-        <div class="p-3 d-flex flex-wrap">
-            <div class="d-flex justify-content-end align-items-center col-12 col-md-7">
-                <input class="form-control me-2 search-input" type="text" name="nameEvents" v-model="valorBusqueda" @input="filtroBusqueda" placeholder="Buscar"/>
-                <span class="input-group-text d-inline m-0 p-0 lupa" id="addon-wrapping"> <img src="../assets/luupa.png" alt="" width="30"></span>
+        <div class="p-3 d-flex flex-wrap d-flex align-items-center justify-content-center align-items-center mx-auto ">
+            <div class="ml-5 col-12 col-md-3 d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    Ver favoritos
+                </button>
             </div>
-            <div class="d-flex justify-content-end col-12 col-md-5 pt-2 pt-md-0">
+            <div class="d-flex justify-content-center align-items-center col-10 col-md-6">
+                <input class="form-control me-2 search-input" type="text" name="nameEvents" v-model="valorBusqueda"
+                    @input="filtroBusqueda" placeholder="Buscar" />
+                <span class="input-group-text d-inline m-0 p-0 lupa" id="addon-wrapping"> <img src="../assets/luupa.png"
+                        alt="" width="30"></span>
+            </div>
+            <div class="d-flex justify-content-end col-2 col-md-3 pt-2 pt-md-0 ">
                 <button class="boton-carro" id="btn-carro" @click="aparecerCarrito">
                     <img class="imagen-carrito" src="../assets/carro.png" alt="carrito-compra">
                 </button>
@@ -438,6 +445,19 @@
                 </div>
             </div>
         </div>
+        <!-- Modal compra -->
+        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        Compra exitosa
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- boton -->
         <button id="btn-scroll-top" title="Volver al inicio"><span>↑</span><i class="fa fa-angle-up"></i></button>
         <!-- boton -->
@@ -469,6 +489,10 @@
                         <h3>No has añadido nada al carrito 😥</h3>
                     </template>
                 </div>
+            </div>
+            <div class="d-flex justify-content-center mt-5">
+                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                data-bs-target="#exampleModal4">Comprar</button>
             </div>
         </aside>
     </main>

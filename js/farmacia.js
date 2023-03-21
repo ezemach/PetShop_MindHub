@@ -53,13 +53,15 @@ const app = createApp({
         },
         sumarValor(evento){
           this.valorContador = this.valorContador + 1;
-          console.log(evento);
+        },
+        añadirCarrito(evento){
+          this.arrayCarrito.push(this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt))
+        },
+  
+        borrarRegistro(evento){
+          let indice = this.arrayCarrito.indexOf(this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt));
+          this.arrayCarrito.splice(indice , 1)
         }
-      },
-      sumarValor(evento){
-        this.valorContador = this.valorContador + 1;
-        console.log(evento);
-      }
   },
 })
 
