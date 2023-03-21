@@ -79,6 +79,7 @@ const app = createApp({
 
       borrarFavoritos(){
           this.favoritos=[]
+          localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
       },
 
       evento(evento){

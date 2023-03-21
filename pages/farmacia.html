@@ -370,8 +370,8 @@
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                     </div>
-                    <div class="modal-body text-center">
-                        Se ha añadido correctamente al carrito
+                    <div class="modal-body text-center bg-success">
+                        <p class="text-white mb-0 fs-5">Se ha añadido correctamente al carrito ✔</p>
                     </div>
                 </div>
             </div>
@@ -383,9 +383,16 @@
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body text-center">
-                        Compra exitosa
-                    </div>
+                    <template v-if="arrayCarrito.length > 0">
+                        <div class="modal-body text-center bg-success">
+                            <p class="text-white mb-0 fs-5">Compra exitosa </p>
+                        </div>
+                    </template>  
+                    <template v-else>
+                        <div class="modal-body text-center bg-danger">
+                            <p class="text-white mb-0 fs-5">No añadiste nada al carrito</p>
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -401,28 +408,32 @@
             <div class="my-order-content">
                 <div class="shopping-cart d-flex flex-column align-items-center justify-content-center">
                     <template v-if="arrayCarrito.length > 0" v-for="productoCarrito of arrayCarrito">
-                        <div class="d-flex justify-content-evenly align-items-center pt-2 gap-2 carrito-div">
+                        <div class="d-flex justify-content-evenly align-items-center pt-2 gap-1 carrito-div mt-2 mb-2">
                             <img class="img-carrito" :src="productoCarrito.imagen" :alt="productoCarrito.producto">
-                            <p class="mensajeCarrito pb-0 fs-5">{{productoCarrito.producto}}</p>
+                            <p class="mensajeCarrito pb-0 mb-0 fs-4">{{productoCarrito.producto}}</p>
                             <template v-if="productoCarrito.contador == productoCarrito.disponibles">
-                                <div class="botones-cantidad input-group-prepend">
-                                    <button class="boton-menos btn btn-outline-secondary minus-btn" type="button" :name="productoCarrito.producto" @click="restarCarrito">-</button>
-                                </div>
-                                <input type="text" class="form-control quantity-input" :value="productoCarrito.contador">
-                                <div class="input-group-append">
-                                    <button class="boton-mas btn btn-outline-secondary plus-btn disabled" type="button" :name="productoCarrito.producto">+</button>
-                                </div>
+                                <div class="d-flex">
+                                    <div class="botones-cantidad input-group-prepend pe-1">
+                                        <button class="boton-menos btn btn-outline-secondary minus-btn" type="button" :name="productoCarrito.producto" @click="restarCarrito">-</button>
+                                    </div>
+                                    <input type="text" class="form-control quantity-input" :value="productoCarrito.contador">
+                                    <div class="input-group-append ps-1">
+                                        <button class="boton-mas btn btn-outline-secondary plus-btn disabled" type="button" :name="productoCarrito.producto">+</button>
+                                    </div>
+                                </div> 
                             </template>
                             <template v-if="productoCarrito.contador < productoCarrito.disponibles">
-                                <div class="botones-cantidad input-group-prepend">
-                                    <button class="boton-menos btn btn-outline-secondary minus-btn" type="button" :name="productoCarrito.producto" @click="restarCarrito">-</button>
-                                </div>
-                                <input type="text" class="form-control quantity-input" :value="productoCarrito.contador">
-                                <div class="input-group-append">
-                                    <button class="boton-mas btn btn-outline-secondary plus-btn" type="button" :name="productoCarrito.producto" @click="sumarCarrito">+</button>
-                                </div>
+                                <div class="d-flex">
+                                    <div class="botones-cantidad input-group-prepend pe-1">
+                                        <button class="boton-menos btn btn-outline-secondary minus-btn" type="button" :name="productoCarrito.producto" @click="restarCarrito">-</button>
+                                    </div>
+                                    <input type="text" class="form-control quantity-input" :value="productoCarrito.contador">
+                                    <div class="input-group-append ps-1">
+                                        <button class="boton-mas btn btn-outline-secondary plus-btn" type="button" :name="productoCarrito.producto" @click="sumarCarrito">+</button>
+                                    </div>
+                                </div> 
                             </template>
-                            <p class="text-center mb-0 fs-5">$ {{productoCarrito.precio * productoCarrito.contador}}</p>
+                            <p class="text-center mb-0 fs-6">$ {{productoCarrito.precio * productoCarrito.contador}}</p>
                             <img src="../assets/cesto.png" class="imagen-cierre" :alt="productoCarrito.producto"
                                 @click="borrarRegistro">
                         </div>
@@ -431,7 +442,7 @@
                         <h3 class="pt-4">No has añadido nada al carrito 😥</h3>
                     </template>
                     <template v-if="arrayCarrito.length > 0">
-                        <p class="fw-bold fs-3">Total de tu compra : {{totalCompra}}</p>
+                        <p class="fw-bold fs-3">Total de tu compra : $ {{totalCompra}}</p>
                     </template>
                 </div>
             </div>
