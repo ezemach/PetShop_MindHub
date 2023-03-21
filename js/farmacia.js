@@ -48,6 +48,7 @@ const app = createApp({
         },
         borrarFavoritos(){
             this.favoritos=[]
+            localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
         },
         evento(evento){
             this.valorModal = this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt)
