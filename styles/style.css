@@ -214,13 +214,6 @@ h6{
     margin-bottom: 1rem;   
 }
 
-.quantity-input {
-    text-align: center;
-    font-weight: bold;
-    height: 2rem;
-    width: 2rem;
-}
-
 .boton-mas , .boton-menos{
     width: 30px;
     height: 30px;
@@ -288,6 +281,17 @@ aside{
     cursor: pointer;
 }
 
+.imagen-cierre {
+    width: 1.5rem;
+}
+
+.quantity-input {
+    text-align: center;
+    font-weight: bold;
+    height: 2rem;
+    width: 3rem;
+}
+
 /*modal*/
 .img-modal{
     height: 30rem;
@@ -327,6 +331,26 @@ aside{
     text-align: justify;
 }
 
+/* form */
+/*form*/
+.form-label {
+    color: white;
+}
+
+#submit {
+    background-color: #EFA3C8;
+
+}
+
+#formContact {
+    background-color: var(--fondo-header);
+    border-radius: 5%;
+}
+
+#textoForm {
+    color: #fff;
+}
+
 /* footer */
 footer{
     background-color: var(--fondo-header);
@@ -345,7 +369,7 @@ footer img{
     display: none;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
     aside{
         width: 100%;
     }

@@ -20,8 +20,11 @@ const app = createApp({
             .then(response => response.json())
             .then(data => {
                 this.datos = data;
-                this.datosFarmacia = data.filter(producto => producto.categoria === "farmacia");
-                this.datosFarmaciaFiltrados = data.filter(producto => producto.categoria === "farmacia");
+                for (producto of this.datos){
+                  producto.contador = 0
+                }
+                this.datosFarmacia = this.datos.filter(producto => producto.categoria === "farmacia");
+                this.datosFarmaciaFiltrados = this.datos.filter(producto => producto.categoria === "farmacia");
                 this.favoritos= JSON.parse(localStorage.getItem("favoritos"))||[];
             })
             .catch(error => console.log(error))
@@ -51,16 +54,52 @@ const app = createApp({
         handleFav(){
             localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
         },
-        sumarValor(evento){
-          this.valorContador = this.valorContador + 1;
+
+        restarValor(evento){
+          this.datos.map(e => {if (e.producto == evento.target.name){ 
+            if(e.contador == 0){
+              e.contador = 0
+            } else {
+              e.contador -= 1;
+            }
+          }})
+          this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
         },
+  
+        sumarValor(evento){
+          this.datos.map(e => {if (e.producto == evento.target.name){ 
+            e.contador += 1
+          }})
+          this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        },
+  
+        restarCarrito(evento){
+          this.arrayCarrito.map(e => {if (e.producto == evento.target.name){ 
+            if(e.contador == 0){
+              e.contador = 0
+            } else {
+              e.contador -= 1;
+            }
+          }})
+          this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        },
+  
+        sumarCarrito(evento){
+          this.arrayCarrito.map(e => {if (e.producto == evento.target.name){ 
+            e.contador += 1
+          }})
+          this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        },
+
         añadirCarrito(evento){
           this.arrayCarrito.push(this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt))
+          this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
         },
   
         borrarRegistro(evento){
           let indice = this.arrayCarrito.indexOf(this.datosFarmaciaFiltrados.find(e => e.producto == evento.target.alt));
           this.arrayCarrito.splice(indice , 1)
+          this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
         }
   },
 })

@@ -11,8 +11,8 @@ const app = createApp({
             valorBusqueda: "",
             favoritos:[],
             valorModal: {},
-            valorContador: 0,
-            arrayCarrito:[]
+            arrayCarrito:[],
+            totalCompra:0,
         }
     },
     created() {
@@ -40,12 +40,40 @@ const app = createApp({
           this.isAsideInactive = !this.isAsideInactive;
       },
 
-      restarValor(){
-        if(this.valorContador == 0){
-          this.valorContador = 0
-        } else {
-          this.valorContador = this.valorContador - 1;
-        }
+      restarValor(evento){
+        this.datos.map(e => {if (e.producto == evento.target.name){ 
+          if(e.contador == 0){
+            e.contador = 0
+          } else {
+            e.contador -= 1;
+          }
+        }})
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+      },
+
+      sumarValor(evento){
+        this.datos.map(e => {if (e.producto == evento.target.name){ 
+          e.contador += 1
+        }})
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+      },
+
+      restarCarrito(evento){
+        this.arrayCarrito.map(e => {if (e.producto == evento.target.name){ 
+          if(e.contador == 0){
+            e.contador = 0
+          } else {
+            e.contador -= 1;
+          }
+        }})
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+      },
+
+      sumarCarrito(evento){
+        this.arrayCarrito.map(e => {if (e.producto == evento.target.name){ 
+          e.contador += 1
+        }})
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
       },
 
       borrarFavoritos(){
@@ -59,18 +87,16 @@ const app = createApp({
       handleFav(){
           localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
       },
-      
-      sumarValor(evento){
-        this.valorContador = this.valorContador + 1;
-      },
 
       añadirCarrito(evento){
         this.arrayCarrito.push(this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt))
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
       },
 
       borrarRegistro(evento){
         let indice = this.arrayCarrito.indexOf(this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt));
         this.arrayCarrito.splice(indice , 1)
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
       }
   },
 })
