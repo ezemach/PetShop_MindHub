@@ -60,10 +60,10 @@ header img {
     transform-origin: right;
 }
 
-/*aporte Carlos */
-/* ul li a.active {
-	border-bottom: solid black 1.5px;
-} */
+/* aporte Carlos */
+ul li a.active {
+	border-bottom: solid var(--fondo-header) 1.5px;
+}
 
 
 ul{
