@@ -74,44 +74,67 @@
 
     <main class="d-flex justify-content-center">
 
-        <div class="container-fluid d-flex w-50 h-50 m-5 p-3 py-2 align-items-center gap-2 mt-5 pb-5 col-12" id="formContact">
-        <form id="form-section" class="d-flex flex-column justify-content-center py-2 needs-validation col-12 col-md-12 col-xl-6" action="./show-data.html" method="get">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label fs-3">Nombre y Apellido</label>
-                <input type="text" class="form-control" id="" placeholder="Nombre y Apellido" name="Nombre y Apellido">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label fs-3">telefono</label>
-                <input type="number" class="form-control" id="" placeholder="Teléfono" name="name">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label fs-3">Email</label>
-                <input type="email" class="form-control" id="" placeholder="nombre@ejemplo.com"
-                    name="email">
-            </div>
-            <div class=" mb-3">
-                <label for="exampleFormControlInput2" class="form-label fs-3">Mascota</label>
-                <input type="text" class="form-control" id="" placeholder="Nombre de Mascota" name="email">
-            </div>
+        <div class="container-fluid d-flex w-50 h-50 m-5 p-3 py-2 align-items-center gap-2 mt-5 pb-5 col-12"
+            id="formContact">
+            <form id="form-section"
+                class="d-flex flex-column justify-content-center py-2 needs-validation col-12 col-md-12 col-xl-6"
+                action="./show-data.html" method="get">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fs-3">Nombre y Apellido</label>
+                    <input type="text" class="form-control" id="" placeholder="Nombre y Apellido"
+                        name="Nombre y Apellido">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fs-3">telefono</label>
+                    <input type="number" class="form-control" id="" placeholder="Teléfono" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput2" class="form-label fs-3">Email</label>
+                    <input type="email" class="form-control" id="" placeholder="nombre@ejemplo.com" name="email">
+                </div>
+                <div class=" mb-3">
+                    <label for="exampleFormControlInput2" class="form-label fs-3">Mascota</label>
+                    <input type="text" class="form-control" id="" placeholder="Nombre de Mascota" name="email">
+                </div>
 
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea3" class="form-label fs-3">Su Comentario</label>
-                <textarea class="form-control" id="" rows="5" name="Mensajes"></textarea>
-            </div>
-            <div class="mb-3 d-flex justify-content-center">
-                <input type="submit" value="Enviar" class="d-flex btn btn-dark fs-5 col-10 justify-content-center " id="submit">
-            </div>
-        </form>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea3" class="form-label fs-3">Su Comentario</label>
+                    <textarea class="form-control" id="" rows="5" name="Mensajes"></textarea>
+                </div>
+                <div class="mb-3 d-flex justify-content-center">
+                    <input type="button" value="Enviar" class="d-flex btn btn-dark fs-5 col-10 justify-content-center"
+                        id="submit" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                </div>
+            </form>
 
-        <div class="d-flex flex-column align-items-center justify-content-around m-4">
-            <h4 class="d-none d-xl-block col-xl-10" id="textoForm">Comuniquese con nosotros para solicitar más información!</h4>
-        <img src="../assets/perritoContact.png" class=" d-flex d-none d-xl-block col-xl-10" alt="">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.879769936532!2d-58.388111084402986!3d-34.68298378043916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcccc67d8841a1%3A0x6cbb3384735c977e!2sParaguay%205%2C%20B1868BXA%20Pi%C3%B1eyro%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1679400988000!5m2!1ses-419!2sar"
-            width="400" height="250" style="border-radius: 2%;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" class="d-flex d-none d-xl-block col-xl-10"></iframe>
-            <h4 class="d-none d-xl-block col-xl-10" id="textoForm">Nuestras Oficinas!</h4>
+            <div class="d-flex flex-column align-items-center justify-content-around m-4">
+                <h4 class="d-none d-xl-block col-xl-10" id="textoForm">Comuniquese con nosotros para solicitar más
+                    información!</h4>
+                <img src="../assets/perritoContact.png" class=" d-flex d-none d-xl-block col-xl-10" alt="">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.879769936532!2d-58.388111084402986!3d-34.68298378043916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcccc67d8841a1%3A0x6cbb3384735c977e!2sParaguay%205%2C%20B1868BXA%20Pi%C3%B1eyro%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1679400988000!5m2!1ses-419!2sar"
+                    width="400" height="250" style="border-radius: 2%;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" class="d-flex d-none d-xl-block col-xl-10"></iframe>
+                <h4 class="d-none d-xl-block col-xl-10" id="textoForm">Nuestras Oficinas!</h4>
+            </div>
         </div>
+        <!-- modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Enviado</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Gracias por enviar
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
