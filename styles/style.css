@@ -312,8 +312,19 @@ aside {
 }
 
 #submit {
-    background-color: var(--fondo-header);
+    background-color: #EFA3C8;
+
 }
+
+#formContact {
+    background-color: var(--fondo-header);
+    border-radius: 5%;
+}
+
+#textoForm {
+    color: #fff;
+}
+
 
 
 /* footer */
