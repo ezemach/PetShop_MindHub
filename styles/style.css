@@ -295,6 +295,7 @@ aside{
 }
 .carrito-div{
     width: 100%;
+    height: 8rem;
     background-color: rgba(238, 195, 202, 0.589);
     border-radius: 30px;
 }
@@ -307,7 +308,7 @@ aside{
 }
 
 .mensajeCarrito {
-    width: 8rem;
+    width: 7rem;
 }
 
 .imagen-cierre , .flecha-atras{

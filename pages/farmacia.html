@@ -410,7 +410,7 @@
                     <template v-if="arrayCarrito.length > 0" v-for="productoCarrito of arrayCarrito">
                         <div class="d-flex justify-content-evenly align-items-center pt-2 gap-1 carrito-div mt-2 mb-2">
                             <img class="img-carrito" :src="productoCarrito.imagen" :alt="productoCarrito.producto">
-                            <p class="mensajeCarrito pb-0 mb-0 fs-4">{{productoCarrito.producto}}</p>
+                            <p class="mensajeCarrito pb-0 mb-0 fs-6">{{productoCarrito.producto}}</p>
                             <template v-if="productoCarrito.contador == productoCarrito.disponibles">
                                 <div class="d-flex">
                                     <div class="botones-cantidad input-group-prepend pe-1">
