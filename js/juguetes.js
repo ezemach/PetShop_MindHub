@@ -27,8 +27,9 @@ const app = createApp({
               this.datosJuguetesFiltrados = this.datos.filter(producto => producto.categoria == "jugueteria");
           })
           .catch(error => console.log(error))
-          this.favoritos= JSON.parse(localStorage.getItem("favoritos"))||[];
+          this.favoritos= JSON.parse(localStorage.getItem("favoritos")) || [];
           this.arrayCarrito = JSON.parse(localStorage.getItem("arrayCarrito")) || [];
+          this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
   },
   methods: {
       filtroBusqueda() {
@@ -50,6 +51,7 @@ const app = createApp({
           }
         }})
         this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
       },
 
       sumarValor(evento){
@@ -57,6 +59,7 @@ const app = createApp({
           e.contador += 1
         }})
         this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
       },
 
       restarCarrito(evento){
@@ -68,6 +71,8 @@ const app = createApp({
           }
         }})
         this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra));
+        localStorage.setItem("arrayCarrito", JSON.stringify(this.arrayCarrito));
       },
 
       sumarCarrito(evento){
@@ -75,11 +80,14 @@ const app = createApp({
           e.contador += 1
         }})
         this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+        localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+        localStorage.setItem("arrayCarrito", JSON.stringify(this.arrayCarrito));
       },
 
       borrarFavoritos(){
           this.favoritos=[]
           localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
+          localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
       },
 
       evento(evento){
@@ -92,13 +100,15 @@ const app = createApp({
 
       añadirCarrito(evento){
         this.arrayCarrito.push(this.datosJuguetesFiltrados.find(e => e.producto == evento.target.alt))
-        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0);
         localStorage.setItem("arrayCarrito", JSON.stringify(this.arrayCarrito));
+        localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra));
+        this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0);
       },
 
       borrarRegistro(evento){
         this.arrayCarrito = this.arrayCarrito.filter(e => e.producto !== evento.target.alt);
         localStorage.setItem("arrayCarrito", JSON.stringify(this.arrayCarrito));
+        localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         this.totalCompra = this.arrayCarrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0);
       }
   },
